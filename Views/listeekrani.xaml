@@ -216,32 +216,7 @@
                <Button Text="İndir" Grid.Column="1" HorizontalOptions="End"/>
                <Button Text="..." Grid.Column="1" HorizontalOptions="End" Margin="45,0,0,0"/>
            </Grid>-->
-                        <ContentPage.Resources>
-                            <ResourceDictionary>
-                                <Style x:Key="EvenItemStyle" TargetType="Grid">
-                                    <Setter Property="BackgroundColor" Value="#302c2c" />
-                                    <Setter Property="VisualStateManager.VisualStateGroups">
-                                        <VisualStateGroupList>
-                                            <VisualStateGroup x:Name="CommonStates">
-                                                <VisualState x:Name="Normal">
-                                                    <VisualState.Setters>
-                                                        <Setter Property="BackgroundColor" Value="#302c2c" />
-                                                    </VisualState.Setters>
-                                                </VisualState>
-                                                <VisualState x:Name="PointerOver">
-                                                    <VisualState.Setters>
-                                                        <Setter Property="BackgroundColor" Value="#403838" />
-                                                    </VisualState.Setters>
-                                                </VisualState>
-                                            </VisualStateGroup>
-                                        </VisualStateGroupList>
-                                    </Setter>
-                                </Style>
-                                <Style x:Key="OddItemStyle" TargetType="Grid">
-                                    <Setter Property="BackgroundColor" Value="Transparent" />
-                                </Style>
-                            </ResourceDictionary>
-                        </ContentPage.Resources>
+                         
                         <Grid Padding="10,10,20,10" ColumnSpacing="10"  BackgroundColor="Transparent" Margin="0,0,30,0" Opacity="0.3"  >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="200" />
