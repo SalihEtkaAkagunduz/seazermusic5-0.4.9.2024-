@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Windows Machine": {
+      "commandName": "MsixPackage",
+      "nativeDebugging": false
+    },
+    "1 Profili": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\s2344\\Downloads\\product-sales.csv"
+    }
+  }
+}

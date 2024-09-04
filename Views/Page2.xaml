@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="seazermusic5.Page2"
+             Title="Page2">
+    <VerticalStackLayout>
+        <WebView x:Name="webView">
+            <WebView.Source>
+                <HtmlWebViewSource Html="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;!-- YouTube IFrame API'yi yükleyen script etiketi --&gt;
+    &lt;script src=&quot;https://www.youtube.com/iframe_api&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- YouTube oynatıcı için bir div konteyneri --&gt;
+    &lt;div id=&quot;player&quot;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+      // Bu fonksiyon, API kodunun yüklenmesi tamamlandığında otomatik olarak çağrılır
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          videoId: 'https://www.youtube.com/watch?v=0Y2PPxrBJt8', // YouTube Video ID
+          events: {
+            'onReady': onPlayerReady
+          }
+        });
+      }
+
+      // Oynatıcı hazır olduğunda çağrılan fonksiyon
+      function onPlayerReady(event) {
+        // Oynatıcı hazır olduğunda yapılacak işlemler
+      }
+
+      // Videoyu oynat
+      function playVideo() {
+        player.playVideo();
+      }
+
+      // Videoyu durdur
+      function stopVideo() {
+        player.stopVideo();
+      }
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;" />
+            </WebView.Source>
+        </WebView>
+    </VerticalStackLayout>
+</ContentPage>

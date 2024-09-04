@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:seazermusic5"
+             xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
+             x:Class="seazermusic5.kayıtlısarki"
+             Title="Parçalar">
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Parçalar" TextColor="#3572EF"  FontAttributes="Bold" FontSize="20" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+            <ImageButton Source="morever.png" Padding="6" HeightRequest="40" WidthRequest="40" HorizontalOptions="End" VerticalOptions="Center" Clicked="ImageButton_Clicked" />
+        </StackLayout>
+    </Shell.TitleView>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="Grid" x:Key="PlatformSpecificGrid">
+                <On Platform="Android">
+                     
+
+                                <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Android Başlıklar -->
+                     
+
+                        <!-- Android Yüklenme İşareti -->
+                        <ActivityIndicator x:Name="LoadingIndicator" IsRunning="False" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+
+                        <!-- Android Sayfa İçeriği -->
+                        <ScrollView Grid.Row="1">
+                            <CollectionView x:Name="SongsCollectionView" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <local:LazyView>
+                                            <local:LazyView.ContentTemplate>
+                                                <DataTemplate>
+                                                    <StackLayout Spacing="10">
+                                            <Grid x:Name="aaf" Padding="5,0,0,0" Margin="4" ColumnSpacing="10" HeightRequest="50" HorizontalOptions="Fill">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="88" />
+                                                    <ColumnDefinition Width="*" />
+                                                     
+                                                </Grid.ColumnDefinitions>
+
+                                                <Frame Grid.Column="0" Margin="10,0,0,0" WidthRequest="75" HeightRequest="48" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="8" HasShadow="False" Padding="0">
+                                                    <Image Source="{Binding ImageUrl}" WidthRequest="90" HeightRequest="68" VerticalOptions="Center" HorizontalOptions="Center" />
+                                                </Frame> 
+
+                                                <Grid Grid.Column="1"  VerticalOptions="Fill" HorizontalOptions="Fill">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                         
+                                                        <ColumnDefinition Width="70" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                                        <Label Text="{Binding Title}" MaxLines="1"  LineBreakMode="TailTruncation"   FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                        <Label Text="{Binding Artist}" MaxLines="1" LineBreakMode="TailTruncation"  TextColor="DimGray" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                    </StackLayout>
+                                                    <ImageButton Grid.Column="1" Margin="0,0,12,0" Source="zzzz.png" MaximumWidthRequest="28" CornerRadius="11" Clicked="OnMoreOptionsClicked" HorizontalOptions="End" BackgroundColor="Transparent" />
+                                                    <!-- En alta çizgi eklemek için BoxView -->
+                                                    <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" />
+                                                </Grid>
+
+                                            </Grid>
+
+
+                                        </StackLayout>
+                                                </DataTemplate>
+                                            </local:LazyView.ContentTemplate>
+                                        </local:LazyView>
+
+
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </ScrollView>
+                        <!-- Android Sabit Alt Bölüm -->
+                        <!--<local:FooterView Grid.Row="2" /> -->
+                     </Grid>
+                             
+
+                </On>
+                <On Platform="WinUI">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Windows Başlıklar -->
+                        <Grid Padding="10,10,20,10" ColumnSpacing="10" Grid.Row="0" BackgroundColor="Transparent" Margin="0,0,30,0" Opacity="0.3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Albüm" FontAttributes="Bold" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" />
+                            <Label Text="Şarkı" FontAttributes="Bold" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" />
+                            <Label Text="Söyleyen" FontAttributes="Bold" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center" />
+                            <Label Text="Süre" FontAttributes="Bold" Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" />
+                        </Grid>
+
+                        <!-- Windows Yüklenme İşareti -->
+                        <ActivityIndicator x:Name="LoadingIndicator1" IsRunning="False" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+
+                        <!-- Windows Sayfa İçeriği -->
+                        <ScrollView Grid.Row="1">
+                            <CollectionView x:Name="SongsCollectionView1" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Spacing="0">
+                                            <Grid Padding="5" Margin="0" ColumnSpacing="10" HeightRequest="50">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="200" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Grid.Column="0" Margin="20,0,0,0" Source="{Binding Tag}" WidthRequest="75" HeightRequest="48" VerticalOptions="Center" HorizontalOptions="Center" />
+                                                <Label Grid.Column="1" Text="{Binding Title}" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" />
+                                                <Label Grid.Column="2" FontFamily="AnnieUseYourTelescopeRegular" Text="{Binding Artist}" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Center" />
+                                                <Label Grid.Column="3" Text="{Binding Length}" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Center" />
+                                                <Button Grid.Column="4" ImageSource="zzzz.png" Clicked="OnMoreOptionsClicked" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="Transparent" />
+                                            </Grid>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </ScrollView>
+
+                        <!-- Windows Sabit Alt Bölüm -->
+                        <!-- <local:FooterView Grid.Row="2" />-->
+                    </Grid>
+                </On>
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentView Content="{StaticResource PlatformSpecificGrid}" />
+</ContentPage>

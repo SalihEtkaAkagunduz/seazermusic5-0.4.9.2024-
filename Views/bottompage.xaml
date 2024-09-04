@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="seazermusic5.bottompage"
+            
+            xmlns:local="clr-namespace:seazermusic5"
+           >
+    <local:MainMenu Title="Home" IconImageSource="Home.png">
+    </local:MainMenu>
+    <local:Gözat Title="News" IconImageSource="grid.png">
+    </local:Gözat>
+    <local:ogebul Title="Support" IconImageSource="a20.png">
+    </local:ogebul>
+    <local:arsiv Title="News" IconImageSource="fff.png">
+    </local:arsiv>
+    <local:Premium Title="Support" IconImageSource="diamond.png">
+    </local:Premium>
+</TabbedPage>
+ 

@@ -1,0 +1,308 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+using FireSharp;
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using Microsoft.Maui.Controls;
+using Newtonsoft.Json;
+using seazermusic5;
+
+namespace FirebaseMedium
+{
+    class Crud
+        
+    {
+        string aa = "";
+        public Crud() {
+             
+               aa = SecureStorage.GetAsync("user_token").Result ?? "SalihDeneme";
+               
+             
+        }
+        connection conn = new connection();
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "sy3XV4C4MoNK62SVdm2r9yWwxwl4DeYOfNfOxJdR",
+            BasePath = "https://seazer-music-default-rtdb.firebaseio.com/"
+        };
+
+        
+
+        //database'e veri ekleme işlemi
+        public void SetData(string? ImageUrl, string? Title, string? Artist, string? Single, string? Length, String Tag, string? YouTubeLink, string? audioStreamInfo)
+        {
+            try
+            {
+                Song set = new Song()
+                {
+                    ImageUrl = ImageUrl,
+                    Title = Title,
+                    Artist = Artist,
+                    Single = Single,
+                    Length = Length,
+                    audioStreamInfo = audioStreamInfo,
+                    Tag = Tag,
+                    YouTubeLink = YouTubeLink
+                };
+
+                IFirebaseConfig config = new FirebaseConfig
+                {
+                    AuthSecret = "sy3XV4C4MoNK62SVdm2r9yWwxwl4DeYOfNfOxJdR",
+                    BasePath = "https://seazer-music-default-rtdb.firebaseio.com/"
+                };
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("bir hata ile karşılaşıldı");
+            }
+        }
+
+        public void SetData(Song s)
+        {
+            try
+            {
+                string userId = aa;
+                Song set = new Song()
+                {
+                    ImageUrl = s.ImageUrl,
+                    Title = s.Title,
+                    Artist = s.Artist,
+                    Single = s.Single,
+                    Length = s.Length,
+                    audioStreamInfo = s.audioStreamInfo,
+                    Tag = s.Tag,
+                    YouTubeLink = s.YouTubeLink
+                };
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+
+                if (client == null)
+                {
+                    Debug.WriteLine("Connection failed");
+                    return;
+                }
+                var response = client.Get($"users/{userId}/Lists/List1/Songs");
+
+                if (response.Body == "null") // Eğer konum yoksa
+                {
+                    // Konumu oluştur
+                    var SetData = conn.client.Set($"users/{userId}/Lists/List1/Songs", set);
+                }
+                else
+                {
+                    // Konum varsa güncelle
+                    var SetData = conn.client.Push($"users/{userId}/Lists/List1/Songs", set);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+        }
+
+        //verileri güncelleme işlemi
+        public void UpdateData(string? ImageUrl, string? Title, string? Artist, string? Single, string? Length, String Tag, string? YouTubeLink, string? audioStreamInfo)
+        {
+            try
+            {
+                string userId = aa;
+                Song set = new Song()
+                {
+                    ImageUrl = ImageUrl,
+                    Title = Title,
+                    Artist = Artist,
+                    Single = Single,
+                    Length = Length,
+                    audioStreamInfo = audioStreamInfo,
+                    Tag = Tag,
+                    YouTubeLink = YouTubeLink
+                };
+
+                var SetData = conn.client.Update($"users/{userId}/Lists/List1/Songs", set);
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("bir hata ile karşılaşıldı");
+            }
+        }
+
+        public void AddPodcast(string listName, string songs)
+        {
+            try
+            {
+                string userId = aa;
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+
+                if (client == null)
+                {
+                    Debug.WriteLine("Connection failed");
+                    return;
+                }
+
+                var response = client.Get($"podcast/{listName}");
+
+                if (response.Body == "null") // Eğer konum yoksa
+                {
+                    // Konumu oluştur ve listeyi ekle
+                    var setData = client.Set($"podcast/{listName}", songs);
+                }
+                else
+                {
+                    // Konum varsa listeyi güncelle
+                    var setData = client.Update($"podcast/{listName}", songs);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+        }
+
+        public void AddList(Listt aaa)
+        {
+            try
+            {
+                string userId = aa;
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+
+                if (client == null)
+                {
+                    Debug.WriteLine("Connection failed");
+                    return;
+                }
+
+                Listt list = aaa;
+
+                var response = client.Get($"users/{userId}/Lists/{list.Name}");
+
+                if (response.Body == "null") // Eğer konum yoksa
+                {
+                    // Konumu oluştur ve listeyi ekle
+                    var setData = client.Set($"users/{userId}/Lists/{list.Name}", list);
+                }
+                else
+                {
+                    // Konum varsa listeyi güncelle
+                    var setData = client.Update($"users/{userId}/Lists/{list.Name}", list);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+        }
+
+        public void AddPodcast(Listt2 songs)
+        {
+            try
+            {
+                string userId = aa;
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+
+                if (client == null)
+                {
+                    Debug.WriteLine("Connection failed");
+                    return;
+                }
+
+                var response = client.Get($"users/{userId}/podcast/{songs.Name}");
+
+                if (response.Body == "null") // Eğer konum yoksa
+                {
+                    // Konumu oluştur ve listeyi ekle
+                    var setData = client.Set($"users/{userId}/podcast/{songs.Name}", songs);
+                }
+                else
+                {
+                    // Konum varsa listeyi güncelle
+                    var setData = client.Update($"users/{userId}/podcast/{songs.Name}", songs);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+        }
+
+        public Dictionary<string, Listt2> LoadAllpodcast()
+        {
+            try
+            {
+                string userId = aa;
+                FirebaseResponse response = conn.client.Get($"users/{userId}/podcast/");
+                var allLists = JsonConvert.DeserializeObject<Dictionary<string, Listt2>>(response.Body.ToString());
+                return allLists;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"bir hata ile karşılaşıldı: {ex.Message}");
+                return null;
+            }
+        }
+
+        public Dictionary<string, Listt> LoadAllLists()
+        {
+            try
+            {
+                string userId = aa;
+                FirebaseResponse response = conn.client.Get($"users/{userId}/Lists");
+                var allLists = JsonConvert.DeserializeObject<Dictionary<string, Listt>>(response.Body.ToString());
+                return allLists;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"bir hata ile karşılaşıldı: {ex.Message}");
+                return null;
+            }
+        }
+
+        //Veri silme
+        public void DeleteTeam(string Name)
+        {
+            try
+            {
+                string userId = aa;
+                // Öncelikle verinin anahtarını bulun
+                var allData = LoadData();
+                var keyToDelete = allData.FirstOrDefault(x => x.Value.Title == Name).Key; // Örneğin, Title'a göre arama yaparak
+                if (!string.IsNullOrEmpty(keyToDelete))
+                {
+                    // Anahtar bulunduysa, veriyi sil
+                    conn.client.Delete($"users/{userId}/Lists/List1/Songs" + keyToDelete);
+                    Debug.WriteLine($"{Name} başarıyla silindi.");
+                }
+                else
+                {
+                    Debug.WriteLine($"{Name} bulunamadı.");
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Bir hata ile karşılaşıldı: " + e.Message);
+            }
+        }
+
+        //verilerin hepsini listeleme
+        public Dictionary<string, Song> LoadData()
+        {
+            try
+            {
+                string userId = aa;
+                FirebaseResponse al = conn.client.Get($"users/{userId}/Lists/List1/Songs");
+                Dictionary<string, Song> ListData = JsonConvert.DeserializeObject<Dictionary<string, Song>>(al.Body.ToString());
+                return ListData;
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("bir hata ile karşılaşıldı");
+                return null;
+            }
+        }
+    }
+}

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:seazermusic5"
+                 
+             x:Class="seazermusic5.podcast"
+             Title="Podcast"  >
+    <OnPlatform x:TypeArguments="Grid">
+        <On Platform="Android">
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Android Başlıklar -->
+
+                <!-- Android Yüklenme İşareti -->
+                <ActivityIndicator x:Name="LoadingIndicator1" IsRunning="False" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+                                                                                  
+                <!-- Android Sayfa İçeriği -->
+                <ScrollView Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="90" />
+                        </Grid.RowDefinitions>
+                        <Frame Grid.Column="0" WidthRequest="240" HeightRequest="240" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="12" HasShadow="False" Padding="0" Margin="0,20,0,20">
+                            <Image x:Name="imgg1" Grid.Row="0" Source="qr.png" WidthRequest="240" HeightRequest="240" BackgroundColor="Black" HorizontalOptions="Center" VerticalOptions="Center" Margin="0, 0,0,0"/>
+                        </Frame>
+                        <Label x:Name="add1" Grid.Row="1" Text="Liste Adı" MaxLines="1" LineBreakMode="TailTruncation" FontFamily="RubikVariableFontWght" FontSize="30" TextColor="WhiteSmoke" FontAttributes="Bold" Margin="20,0,20,0" HorizontalOptions="Center" />
+                        <Label Grid.Row="2" Text="Geçen Hafta Güncellendi" MaxLines="1" LineBreakMode="TailTruncation" TextColor="DimGray" VerticalOptions="Center" FontSize="11" HorizontalOptions="Center" Margin="0, 0,0,20" />
+
+                        <!-- Butonlar -->
+                        <StackLayout Grid.Row="3" Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
+                            <Button FontAttributes="Bold" Text="Çal" TextColor="White" BackgroundColor="RoyalBlue" WidthRequest="160" HeightRequest="40" ImageSource="qqq.png" Padding="7" Margin="0, 0,0,20"/>
+                            <Button x:Name="addbutton1" FontAttributes="Bold" Text="Takip Et" TextColor="White" BackgroundColor="RoyalBlue" WidthRequest="160" HeightRequest="40" ImageSource="hhh.png" Padding="7" Margin="0, 0,0,20" Clicked="AddButton"/>
+                        </StackLayout>
+                        <CollectionView Grid.Row="4" x:Name="SongsCollectionView1">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="2,0,0,0" Margin="4" ColumnSpacing="10" HorizontalOptions="Fill">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" Padding="2,0,0,0" Margin="4" ColumnSpacing="10" HorizontalOptions="Fill">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Frame Grid.Row="0" Grid.Column="0" WidthRequest="52" HeightRequest="52" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="8" HasShadow="False">
+                                                <Image Source="{Binding Image}" WidthRequest="52" HeightRequest="52" VerticalOptions="Center" HorizontalOptions="Center" />
+                                            </Frame>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Title}" FontSize="18" MaxLines="2" LineBreakMode="TailTruncation" FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start" />
+
+                                        </Grid>
+                                        <Grid Grid.Row="1" Grid.Column="1" ColumnSpacing="10" HorizontalOptions="Fill">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding ChannelTitle}" MaxLines="1" LineBreakMode="TailTruncation" TextColor="DimGray" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Start" />
+                                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding Description}" MaxLines="2" LineBreakMode="TailTruncation" TextColor="Gray" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Start" />
+                                            <Label Grid.Row="2" Grid.Column="0" Text="{Binding PubDate}" MaxLines="1" LineBreakMode="TailTruncation" TextColor="DimGray" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Start" />
+                                            <StackLayout Grid.Row="3" Grid.Column="0" Orientation="Horizontal"   Spacing="10" HorizontalOptions="FillAndExpand">
+                                                <ImageButton Source="pd5.png" WidthRequest="33" HeightRequest="33" Padding="4" CornerRadius="6" HorizontalOptions="Start" />
+                                                <ImageButton Source="pd4.png" WidthRequest="33" HeightRequest="33" Padding="4" CornerRadius="6" HorizontalOptions="Start" />
+                                                <ImageButton Source="pd3.png" WidthRequest="33" HeightRequest="33" Padding="4" CornerRadius="6" HorizontalOptions="Start"/>
+                                                <ImageButton Source="pd2.png" WidthRequest="33" HeightRequest="33" Padding="4" CornerRadius="6" HorizontalOptions="Start"   />
+                                                <ImageButton Source="pd1.png" WidthRequest="44" HeightRequest="44" Margin="5"   HorizontalOptions="EndAndExpand"  />
+                                            </StackLayout>
+                                            <BoxView Grid.Row="3" Grid.ColumnSpan="2" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" />
+                                        </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+
+
+                        </CollectionView>
+
+                        <Label Grid.Row="5" x:Name="derder1" Text="Geçen Hafta Güncellendi" MaxLines="1" LineBreakMode="TailTruncation" TextColor="DimGray" HorizontalOptions="Start" VerticalOptions="Center" FontSize="15" Margin="30, 25,20,20" />
+                    </Grid>
+                </ScrollView>
+                <!-- Android Sabit Alt Bölüm -->
+                 
+            </Grid>
+
+
+        </On>
+
+       
+        <On Platform="WinuI">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <ActivityIndicator x:Name="LoadingIndicator" IsRunning="False" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center"   />
+
+
+                <ScrollView Grid.Row="1">
+                    <VerticalStackLayout x:Name="hhk" Spacing="10" Padding="10">
+                        <Grid Margin="10,50,20,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300" />
+                                <!-- İlk sütunun genişliği sabit 300 birim -->
+                                <ColumnDefinition Width="*" />
+                                <!-- İkinci sütun kalan alanı alır -->
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition  Height=" *" />
+                                <RowDefinition Height=" *" />
+                            </Grid.RowDefinitions>
+
+                            <!-- İlk sütunun içeriği -->
+                            <Image x:Name="imggg"  Grid.Column="0" Source="qr.png" WidthRequest="300" HeightRequest="240" Grid.RowSpan="2"/>
+                            <Label x:Name="lblll" Text="Liste Başlığı" FontFamily="RubikVariableFontWght" FontSize="30" TextColor="WhiteSmoke" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" VerticalOptions="Start" Margin="0,20,0,0" Padding="12,0,0,30"/>
+                            <Label x:Name="ögg" Text="58 öğe • 3 saat 8 dakika"  FontFamily="RubikVariableFontWght" FontAttributes="Bold" TextColor="LightGrey" FontSize="14"  Grid.Column="1" Grid.Row="0" VerticalOptions="End" Padding="12,0,0,12"/>
+                            <CheckBox Grid.Column="1" Grid.Row="2" VerticalOptions="Start" HorizontalOptions="Start" Margin="7,0,0,0"/>
+                            <Label FontFamily="MPLUSRounded1cMedium" Text="Profilde ve aramada yayımla" Grid.Column="1" Grid.Row="2" VerticalOptions="Start" HorizontalOptions="Start" FontSize="14" Margin="41,11,0,0" />
+
+
+                            <Button FontAttributes="Bold" Text="Çal" TextColor="White" MinimumHeightRequest="13" BackgroundColor="RoyalBlue" Grid.Column="1" Grid.Row="2"  VerticalOptions="End" HorizontalOptions="Start" WidthRequest="105"  HeightRequest=" 35" ImageSource="qqq.png"  Padding="7" Margin="12,0,0,10">
+
+                            </Button>
+                            <Button FontAttributes="Bold" Clicked="Button_Clicked" x:Name="ssd"  TextColor="White" BackgroundColor="Transparent" Grid.Column="1" Grid.Row="2"  VerticalOptions="End" HorizontalOptions="End"    WidthRequest="111" HeightRequest="7" ImageSource="bba.png" Margin="165,4, 0,10">
+                                <FlyoutBase.ContextFlyout  >
+                                    <MenuFlyout >
+                                        <MenuFlyoutItem Text="Black"
+     
+     CommandParameter="Black" />
+                                        <MenuFlyoutSubItem Text="Light">
+                                            <MenuFlyoutItem Text="Blue"
+          
+         CommandParameter="LightBlue" />
+                                            <MenuFlyoutItem Text="Coral"
+          
+         CommandParameter="LightCoral" />
+                                            <MenuFlyoutItem Text="Cyan"
+          
+         CommandParameter="LightCyan" />
+                                        </MenuFlyoutSubItem>
+                                        <MenuFlyoutSubItem Text="Dark">
+                                            <MenuFlyoutItem Text="Blue"
+      
+         CommandParameter="DarkBlue" />
+                                            <MenuFlyoutItem Text="Cyan"
+      
+         CommandParameter="DarkCyan" />
+                                            <MenuFlyoutItem Text="Magenta"
+      
+         CommandParameter="DarkMagenta" />
+                                        </MenuFlyoutSubItem>
+                                    </MenuFlyout>
+                                </FlyoutBase.ContextFlyout>
+                            </Button>
+                            <Button    TextColor="White" BackgroundColor="Transparent" Grid.Column="1" Grid.Row="2"  VerticalOptions="End" HorizontalOptions="End"   WidthRequest="7"  Padding="10" Margin="12,20,80,10" ImageSource=" aab.png" Clicked="Button_Clicked">
+                                <FlyoutBase.ContextFlyout  >
+                                    <MenuFlyout >
+                                        <MenuFlyoutItem Text="Black"
+     
+     CommandParameter="Black" />
+                                        <MenuFlyoutSubItem Text="Light">
+                                            <MenuFlyoutItem Text="Blue"
+          
+         CommandParameter="LightBlue" />
+                                            <MenuFlyoutItem Text="Coral"
+          
+         CommandParameter="LightCoral" />
+                                            <MenuFlyoutItem Text="Cyan"
+          
+         CommandParameter="LightCyan" />
+                                        </MenuFlyoutSubItem>
+                                        <MenuFlyoutSubItem Text="Dark">
+                                            <MenuFlyoutItem Text="Blue"
+      
+         CommandParameter="DarkBlue" />
+                                            <MenuFlyoutItem Text="Cyan"
+      
+         CommandParameter="DarkCyan" />
+                                            <MenuFlyoutItem Text="Magenta"
+      
+         CommandParameter="DarkMagenta" />
+                                        </MenuFlyoutSubItem>
+                                    </MenuFlyout>
+                                </FlyoutBase.ContextFlyout>
+                            </Button>
+                            <Button x:Name="addbutton" Clicked="AddButton" FontAttributes="Bold" Text="Takip Et" TextColor="White"   MinimumHeightRequest="13" BackgroundColor="RoyalBlue" Grid.Column="1" Grid.Row="2"  VerticalOptions="End" HorizontalOptions="Start"    WidthRequest="105"  HeightRequest=" 35" Padding="7"  ImageSource="add.png"  Margin="135,44,44,10">
+
+                            </Button>
+
+
+
+                        </Grid>
+
+                        <!--<Grid ColumnDefinitions="100,*,Auto,Auto" RowDefinitions="Auto,Auto" >
+             <Image Source="eee.png" WidthRequest="100" HeightRequest="100" Grid.RowSpan="2"/>
+             <Label Text="Liste Başlığı" FontSize="22" Grid.Column="1" VerticalOptions="End"/>
+             <Label Text="X Eleman, Toplam Süre: YY:ZZ" FontSize="14" Grid.Column="1" Grid.Row="1" VerticalOptions="Start"/>
+             <Button Text="Çal" BackgroundColor="Pink" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="5"/>
+             <Button Text="Karıştır" BackgroundColor="Pink" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Margin="5"/>
+         </Grid>
+         <Grid ColumnDefinitions="*,Auto" >
+             <Button Text="İndir" Grid.Column="1" HorizontalOptions="End"/>
+             <Button Text="..." Grid.Column="1" HorizontalOptions="End" Margin="45,0,0,0"/>
+         </Grid>-->
+                         
+                        <Grid Padding="10,10,20,10" ColumnSpacing="10"  BackgroundColor="Transparent"   Opacity="0.3"  >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*" />
+
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="110" />
+
+                            </Grid.ColumnDefinitions >
+                            <Label Text="Bölüm Adı" FontAttributes="Bold" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"  Margin="30,0,0,0"/>
+                            <Label Text="Kanal" FontAttributes="Bold" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" />
+                            <Label Text="Yayın Tarihi" FontAttributes="Bold" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center" />
+
+                        </Grid>
+                        <CollectionView x:Name="SongsCollectionView" SelectionMode="Single" SelectionChanged="OnSelectionChanged1">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Spacing="0">
+                                        <Grid Padding="5" Margin="0" ColumnSpacing="10" HeightRequest="90">
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="4*" />
+
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="50" />
+                                                <ColumnDefinition Width="60" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" Margin="30,0,0,0" FontFamily="MPLUSRounded1cBold" Text="{Binding Title}" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                            <Label Grid.Column="1" FontFamily="AnnieUseYourTelescopeRegular" Text="{Binding ChannelTitle}" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Center" />
+                                            <Label Grid.Column="2" Text="{Binding PubDate}" FontSize="16"  VerticalOptions="Center" HorizontalOptions="Center" />
+                                            <Button Grid.Column="3" IsVisible="{Binding varmi}" ImageSource="rt.png" Clicked="OnMoreOptionsClicked" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="Transparent" ></Button>
+                                            <Button Grid.Column="4" ImageSource="zzzz.png" Clicked="OnMoreOptionsClicked" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent" ></Button>
+
+                                        </Grid>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <Label x:Name="derder" Text=" " TextColor="SlateBlue" TextDecorations="Underline" Margin="40,40,40,40"  FontFamily="RubikVariableFontWght" FontAttributes="Bold"   FontSize="14"    VerticalOptions="End" Padding="12,0,0,12"/>
+
+                    </VerticalStackLayout>
+                </ScrollView>
+                 
+
+
+
+
+            </Grid>
+        </On>
+        
+        
+        
+    </OnPlatform>
+    
+
+
+</ContentPage>

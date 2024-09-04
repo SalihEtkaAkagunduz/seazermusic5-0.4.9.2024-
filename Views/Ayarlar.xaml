@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="seazermusic5.Ayarlar"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:seazermusic5"
+    Title="Ayarlar">
+
+    <ScrollView>
+        <StackLayout Padding="10">
+            <!-- Hesap Ayarları -->
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="10" Margin="0,10">
+                <StackLayout>
+                    <Label Text="Hesap Ayarları" FontAttributes="Bold" FontSize="Medium" />
+                    <Label Text="Kullanıcı Adı: user123" />
+                    <Label Text="E-posta: user@example.com" />
+                    <Button Text="Çıkış Yap" BackgroundColor="DimGray" TextColor="White" />
+                </StackLayout>
+            </Frame>
+
+            <!-- Bildirim Ayarları -->
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="10" Margin="0,10">
+                <TableView>
+                    <TableRoot>
+                        <TableSection Title="Bildirim Ayarları">
+                            <SwitchCell Text="Yeni Şarkı Bildirimleri" On="true" />
+                            <SwitchCell Text="Arkadaş Etkinlikleri" On="false" />
+                            <SwitchCell Text="Özel Teklifler" On="true" />
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+            </Frame>
+
+            <!-- Oynatma Ayarları -->
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="10" Margin="0,10">
+                <TableView>
+                    <TableRoot>
+                        <TableSection Title="Oynatma Ayarları">
+                            <SwitchCell Text="Karışık Çal" On="true" />
+                            <SwitchCell Text="Otomatik Oynatma" On="false" />
+                            <SwitchCell Text="Yüksek Kalite Ses" On="true" />
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+            </Frame>
+
+            <!-- Tema Ayarları -->
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="10" Margin="0,10">
+                <StackLayout>
+                    <Label Text="Tema Ayarları" FontAttributes="Bold" FontSize="Medium" />
+                    <Picker Title="Tema Seçin">
+                        <Picker.Items>
+                            <x:String>Açık Tema</x:String>
+                            <x:String>Koyu Tema</x:String>
+                            <x:String>Sistem Varsayılanı</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+            </Frame>
+
+            <!-- Diğer Ayarlar -->
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="10" Margin="0,10">
+                <TableView>
+                    <TableRoot>
+                        <TableSection Title="Diğer Ayarlar">
+                            <SwitchCell Text="Veri Tasarrufu" On="false" />
+                            <SwitchCell Text="Arka Planda Çalma" On="true" />
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+                <Button Text="Önbelleği Temizle" BackgroundColor="DimGray" TextColor="White" />
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

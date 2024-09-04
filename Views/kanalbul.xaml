@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:seazermusic5"  
+             x:Class="seazermusic5.kanalbul"
+             Title="Şarkı Bul">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Sayfa İçeriği -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="10" Padding="19">
+                <!-- Spacing değeri artırıldı -->
+                <Entry x:Name="searchEntry" Placeholder="YouTube'da şarkı ara..." TextChanged="OnSearchTextChanged"/>
+                <ActivityIndicator x:Name="loadingIndicator" IsRunning="False" IsVisible="False" />
+                <CollectionView x:Name="songsCollectionView" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="10" Padding="10" CornerRadius="4">
+                                <!-- Frame Margin değeri artırıldı -->
+                                <Grid Padding="1" Margin="5" ColumnSpacing="60" HeightRequest="50">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Grid.Column="0" Source="{Binding Thumbnail}" HeightRequest="150" WidthRequest="120" Margin="5" />
+                                    <Label Grid.Column="1" Text="{Binding Title}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" Margin="5"/>
+                                    <Label FontFamily="AnnieUseYourTelescopeRegular" Grid.Column="2" Text="{Binding Author}" HorizontalOptions="StartAndExpand" Margin="5"/>
+                                    <Label Grid.Column="3" Text="{Binding Length}" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Center" Margin="5"/>
+
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Sabit Alt Bölüm -->
+        <!-- <local:FooterView Grid.Row="1" />-->
+    </Grid>
+</ContentPage>

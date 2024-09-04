@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:seazermusic5"
+             x:Class="seazermusic5.FooterView">
+    <Frame Padding="0" CornerRadius="8" BackgroundColor="#0F0F0F">
+        <!-- CornerRadius ve BackgroundColor ayarlandı -->
+
+        <OnPlatform x:TypeArguments="Grid">
+            <On Platform="Android">
+                <Grid BackgroundColor="#0F0F0F" Padding="0,7,0,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Resim ve Yazılar -->
+                    <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Start"   Margin="10,0,0,0">
+                        <Frame Grid.Column="0"  WidthRequest="55" HeightRequest="55" VerticalOptions="Center" HorizontalOptions="Center" BorderColor="Transparent" BackgroundColor="Transparent" CornerRadius="8" HasShadow="False" Padding="0">
+                            <Image x:Name="albmresim1" Source="logoooo.png" WidthRequest="40" HeightRequest="40"  />
+                        </Frame>
+                         <StackLayout Orientation="Vertical" Margin="15,0,0,0" HorizontalOptions="Center" Spacing="3">
+                            <Label x:Name="sarkiadi1" Text="Seazer Music" TextColor="RoyalBlue" FontSize="16" VerticalOptions="Center"   LineBreakMode="TailTruncation" WidthRequest="220" />
+                            <Label x:Name="yazaradi1" Text="powered by SEAzer Software" TextColor="DimGray" FontSize="14" VerticalOptions="Center"   HorizontalOptions="Start"  MaxLines="1" WidthRequest="220" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!-- Oynat ve İleri Butonları -->
+                    <ImageButton x:Name="oynat1" Grid.Row="0" Grid.Column="2" Source="qqq.png" WidthRequest="45" VerticalOptions="Center" HeightRequest="45" CornerRadius="11" Margin="5,0,5,0" BackgroundColor="#0F0F0F" Clicked="OnQqqButtonClicked">
+                        
+                    </ImageButton>
+                    <ImageButton x:Name="ileributon1" Grid.Row="0" Grid.Column="3" Source="ppp.png" WidthRequest="45"  Margin="5,0,8,0" VerticalOptions="Center" CornerRadius="11"  HeightRequest="45" BackgroundColor="#0F0F0F" Clicked="OnPppButtonClicked">
+                         
+                    </ImageButton>
+                </Grid>
+            </On>
+
+            <On Platform="WinUI">
+                <Grid BackgroundColor="#0F0F0F" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Yazılar -->
+                    <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Start" Spacing="10" Margin="20,0,0,0">
+                        <Image x:Name="albmresim" Source="eee.png" WidthRequest="50" HeightRequest="50" />
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" Spacing="5">
+                            <Label x:Name="sarkiadi" Text="Seazer Music" TextColor="RoyalBlue" FontSize="17" VerticalOptions="Center" Margin="7,2,0,0" />
+                            <Label x:Name="yazaradi" Text="powered by SEAzer Software" TextColor="LightGrey" FontSize="13" VerticalOptions="Center" Margin="7,0,0,11" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!-- Butonlar -->
+                    <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                        <Button x:Name="geributon" ImageSource="sss.png" WidthRequest="58" BackgroundColor="#0F0F0F" Clicked="OnSssButtonClicked">
+                            <Button.Triggers>
+                                <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                </Trigger>
+                            </Button.Triggers>
+                        </Button>
+                        <Button x:Name="oynat" ImageSource="qqq.png" WidthRequest="58" BackgroundColor="#0F0F0F" Clicked="OnQqqButtonClicked">
+                            <Button.Triggers>
+                                <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                </Trigger>
+                            </Button.Triggers>
+                        </Button>
+                        <Button x:Name="ileributon" ImageSource="ppp.png" WidthRequest="58" BackgroundColor="#0F0F0F" Clicked="OnPppButtonClicked">
+                            <Button.Triggers>
+                                <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                </Trigger>
+                            </Button.Triggers>
+                        </Button>
+                    </StackLayout>
+
+                    <!-- Yeni Butonlar ve Slider -->
+                    <StackLayout Grid.Row="0" Grid.Column="5" Orientation="Horizontal" HorizontalOptions="End" Spacing="0">
+                        <Button x:Name="sesbutton" ImageSource="ee.png" WidthRequest="56" BackgroundColor="#0F0F0F" Clicked="OnEeButtonClicked" />
+                        <Slider x:Name="sesSlider" Minimum="0" Maximum="1" Value="1" VerticalOptions="Center" IsVisible="False" WidthRequest="100" ValueChanged="OnSesSliderValueChanged" />
+                        <Button x:Name="sozbuton" ImageSource="ttt.png" WidthRequest="53" BackgroundColor="#0F0F0F" Clicked="OnTttButtonClicked" />
+                        <Button x:Name="karistirbuton" ImageSource="hhh.png" WidthRequest="54" BackgroundColor="#0F0F0F" Margin="0,0,20,0" Clicked="OnHhhButtonClicked" />
+                    </StackLayout>
+
+                    <!-- Slider -->
+                    <Slider x:Name="sarkislider" Grid.Row="1" ValueChanged="OnSliderValueChanged" Grid.ColumnSpan="6" Minimum="0" Maximum="100" HeightRequest="32" VerticalOptions="End" Margin="21,1,21,6" />
+                </Grid>
+            </On>
+        </OnPlatform>
+    </Frame>
+</ContentView>

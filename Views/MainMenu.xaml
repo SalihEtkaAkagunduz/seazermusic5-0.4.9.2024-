@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="seazermusic5.MainMenu"
+             Title="MainMenu">
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Merhaba Salih" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="20" />
+            <ImageButton Source="set.pdf" HeightRequest="46" WidthRequest="46" Padding="10" Margin="0,0,6,0" CornerRadius="12" Clicked="ImageButton_Clicked" />
+            <toolkit:AvatarView Text="SE"
+                                FontSize="15"
+                                TextColor="White"
+                                BackgroundColor="#3572EF"
+                                BorderColor="#3572EF"
+                                BorderWidth="0.5"
+                                HeightRequest="40"
+                                WidthRequest="40"
+                                Margin="0,0,16,0"
+                                CornerRadius="120">
+                <toolkit:AvatarView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                </toolkit:AvatarView.GestureRecognizers>
+            </toolkit:AvatarView>
+        </StackLayout>
+    </Shell.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <StackLayout Orientation="Horizontal" Padding="5,8,5,5">
+                    <!-- İlk öğe -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="SE"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="White"
+                                     BorderWidth="2"
+                                     HeightRequest="80"
+WidthRequest="80" 
+                                      ImageSource  ="https://blog.teknosa.com/wp-content/uploads/2021/09/profil-fotografi-nasil-cekilmeli-teknosa.jpg"
+CornerRadius="45">
+
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer öğeler -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="AM"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                    BorderColor="White"
+ BorderWidth="2"
+                                        ImageSource="https://i.pinimg.com/736x/d6/64/cb/d664cb970d4bbc84f69fb50783c824ca.jpg"
+                                     HeightRequest="80"
+                                     WidthRequest="80"
+                                     CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer 8 öğe benzer şekilde eklenir -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="YZ"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="White"
+ BorderWidth="2"  ImageSource="https://marketplace.canva.com/EAFq3tVXH0Q/1/0/1600w/canva-mor-ve-turuncu-sade-kad%C4%B1n-instagram-profil-resmi-SvYI4vrDyFM.jpg"
+                                     HeightRequest="80"
+                                     WidthRequest="80"
+                                     CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="AM"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    BackgroundColor="Transparent"
+                                   BorderColor="White"
+BorderWidth="2"  ImageSource="https://blog.teknosa.com/wp-content/uploads/2021/07/fotograf-makinesi-nasil-tutulmali-teknosa.jpg"
+                                    HeightRequest="80"
+                                    WidthRequest="80"
+                                    CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer 8 öğe benzer şekilde eklenir -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="YZ"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    BackgroundColor="Transparent"
+                                    BorderColor="White"
+BorderWidth="2" ImageSource="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                                    HeightRequest="80"
+                                    WidthRequest="80"
+                                    CornerRadius="45">
+
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer 7 öğe benzer şekilde eklenir -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="MK"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="White"
+ BorderWidth="2"  ImageSource="https://i0.wp.com/khosann.com/wp-content/uploads/2015/08/original.jpg"
+                                     HeightRequest="80"
+WidthRequest="80"
+CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="SE"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="White"
+                                     BorderWidth="2"
+                                     HeightRequest="80"
+WidthRequest="80" 
+                                      ImageSource  ="https://blog.teknosa.com/wp-content/uploads/2021/09/profil-fotografi-nasil-cekilmeli-teknosa.jpg"
+CornerRadius="45">
+
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer öğeler -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="AM"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                    BorderColor="White"
+ BorderWidth="2"
+                                        ImageSource="https://i.pinimg.com/736x/d6/64/cb/d664cb970d4bbc84f69fb50783c824ca.jpg"
+                                     HeightRequest="80"
+                                     WidthRequest="80"
+                                     CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer 8 öğe benzer şekilde eklenir -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="YZ"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="White"
+ BorderWidth="2"  ImageSource="https://marketplace.canva.com/EAFq3tVXH0Q/1/0/1600w/canva-mor-ve-turuncu-sade-kad%C4%B1n-instagram-profil-resmi-SvYI4vrDyFM.jpg"
+                                     HeightRequest="80"
+                                     WidthRequest="80"
+                                     CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="AM"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    BackgroundColor="Transparent"
+                                   BorderColor="White"
+BorderWidth="2"  ImageSource="https://blog.teknosa.com/wp-content/uploads/2021/07/fotograf-makinesi-nasil-tutulmali-teknosa.jpg"
+                                    HeightRequest="80"
+                                    WidthRequest="80"
+                                    CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer 8 öğe benzer şekilde eklenir -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="YZ"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    BackgroundColor="Transparent"
+                                    BorderColor="White"
+BorderWidth="2" ImageSource="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                                    HeightRequest="80"
+                                    WidthRequest="80"
+                                    CornerRadius="45">
+
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer 7 öğe benzer şekilde eklenir -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="MK"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="White"
+ BorderWidth="2"  ImageSource="https://i0.wp.com/khosann.com/wp-content/uploads/2015/08/original.jpg"
+                                     HeightRequest="80"
+WidthRequest="80"
+CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="SE"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="White"
+                                     BorderWidth="2"
+                                     HeightRequest="80"
+WidthRequest="80" 
+                                      ImageSource  ="https://blog.teknosa.com/wp-content/uploads/2021/09/profil-fotografi-nasil-cekilmeli-teknosa.jpg"
+CornerRadius="45">
+
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer öğeler -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="AM"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                    BorderColor="White"
+ BorderWidth="2"
+                                        ImageSource="https://i.pinimg.com/736x/d6/64/cb/d664cb970d4bbc84f69fb50783c824ca.jpg"
+                                     HeightRequest="80"
+                                     WidthRequest="80"
+                                     CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer 8 öğe benzer şekilde eklenir -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="YZ"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="White"
+ BorderWidth="2"  ImageSource="https://marketplace.canva.com/EAFq3tVXH0Q/1/0/1600w/canva-mor-ve-turuncu-sade-kad%C4%B1n-instagram-profil-resmi-SvYI4vrDyFM.jpg"
+                                     HeightRequest="80"
+                                     WidthRequest="80"
+                                     CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="AM"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    BackgroundColor="Transparent"
+                                   BorderColor="White"
+BorderWidth="2"  ImageSource="https://blog.teknosa.com/wp-content/uploads/2021/07/fotograf-makinesi-nasil-tutulmali-teknosa.jpg"
+                                    HeightRequest="80"
+                                    WidthRequest="80"
+                                    CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer 8 öğe benzer şekilde eklenir -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="YZ"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    BackgroundColor="Transparent"
+                                    BorderColor="White"
+BorderWidth="2" ImageSource="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                                    HeightRequest="80"
+                                    WidthRequest="80"
+                                    CornerRadius="45">
+
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                    <!-- Diğer 7 öğe benzer şekilde eklenir -->
+                    <StackLayout Padding="6" HorizontalOptions="Center">
+
+
+                        <toolkit:AvatarView Text="MK"
+                                     FontSize="20"
+                                     TextColor="White"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="White"
+ BorderWidth="2"  ImageSource="https://i0.wp.com/khosann.com/wp-content/uploads/2015/08/original.jpg"
+                                     HeightRequest="80"
+WidthRequest="80"
+CornerRadius="45">
+                            <toolkit:AvatarView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AvatarView_Tapped" />
+                            </toolkit:AvatarView.GestureRecognizers>
+                        </toolkit:AvatarView>
+
+                        <Label Text="Salih Etka" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" VerticalOptions="Center" FontSize="12"   />
+                    </StackLayout>
+                </StackLayout>
+
+            </ScrollView>
+            <StackLayout  Orientation="Horizontal" Margin="10">
+
+
+                <Button x:Name="btn1"  WidthRequest="80" Margin="5 " BorderWidth="1"  HorizontalOptions="Center"  VerticalOptions="Center"    BorderColor="#73736c"  HeightRequest="40" BackgroundColor="#3b3a38" CornerRadius="8" Text="Müzik " TextColor="White"  />
+                <Button x:Name="btn2" WidthRequest="80" HeightRequest="40" Margin="5 " HorizontalOptions="Center"  VerticalOptions="Center"  BorderWidth="1" BorderColor="#73736c"   BackgroundColor="#3b3a38" CornerRadius="8" Text="Podcast" TextColor="White" />
+
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,5,3,5">
+                <Label Text="Son Dinlenen Şarkılar" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_1"  />
+            </StackLayout>
+
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView" Margin="0,6,0,0">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170" BackgroundColor="Beige" BorderColor="Transparent">
+                                    <Image Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label Text="{Binding Title}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                                <Label Text="{Binding Artist}" FontSize="Small" TextColor="Gray"   LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,5,3,5">
+                <Label Text="Son Dinlenen Listeler" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_2"  />
+            </StackLayout>
+
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView1" Margin="0,6,0,0" SelectionChanged="RecentAlbumsCollectionView1_SelectionChanged" SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170"   BackgroundColor="Beige" BorderColor="Transparent" InputTransparent="True">
+                                    <Image Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label Text="{Binding Name}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" InputTransparent="True" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </ScrollView>
+
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,5,3,5">
+                <Label Text="Takip Edilen Podcastler" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_3"  />
+            </StackLayout>
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView3" Margin="0,6,0,0" SelectionChanged="RecentAlbumsCollectionView3_SelectionChanged" SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170" BackgroundColor="Beige" BorderColor="Transparent">
+                                    <Image InputTransparent="True" Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label InputTransparent="True" Text="{Binding Name}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                           
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,5,3,5">
+                <Label Text="Son Dinlenen Şarkılar" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_4"  />
+            </StackLayout>
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView6" Margin="0,6,0,0">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170" BackgroundColor="Beige" BorderColor="Transparent">
+                                    <Image Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label Text="{Binding Title}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                                <Label Text="{Binding Artist}" FontSize="Small" TextColor="Gray"   LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,5,3,5">
+                <Label Text="Video Listeleri" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_5"  />
+            </StackLayout>
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView4" Margin="0,6,0,0">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170" BackgroundColor="Beige" BorderColor="Transparent">
+                                    <Image Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label Text="{Binding Title}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                                <Label Text="{Binding Artist}" FontSize="Small" TextColor="Gray"   LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,5,3,5">
+                <Label Text="İzlenen Videolar" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_6"  />
+            </StackLayout>
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView5" Margin="0,6,0,0">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170" BackgroundColor="Beige" BorderColor="Transparent">
+                                    <Image Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label Text="{Binding Title}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                                <Label Text="{Binding Artist}" FontSize="Small" TextColor="Gray"   LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+             

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="seazermusic5.ogebul"
+             xmlns:local="clr-namespace:seazermusic5"
+             Title="Arama Yap">
+    <OnPlatform x:TypeArguments="Grid">
+        <On Platform="Android">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Sayfa İçeriği -->
+                <ScrollView Grid.Row="0">
+                    <VerticalStackLayout Spacing="10" Padding="5">
+                   
+                        <Label x:Name="asaa" Text="Ara" FontSize="29" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" Margin="18, 20, 10, 5"/>
+
+                        <!-- Spacing değeri artırıldı -->
+                        <Frame 
+                            BackgroundColor="#333332"
+                            CornerRadius="12"
+                            Padding="0"
+                            Margin="6,5,6,0"
+                            VerticalOptions="Start"
+                            HorizontalOptions="FillAndExpand" 
+                            BorderColor="Transparent"
+                            Grid.Row="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Geri Butonu -->
+                                <ImageButton 
+                                    Grid.Column="0"
+                                    Margin="15,0,0,0"
+                                    HeightRequest="30"
+                                    WidthRequest="30"
+                                    Source="bacg.png" 
+                                    BackgroundColor="Transparent"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    IsVisible="False"
+                                    x:Name="backButton"
+                                    Clicked="OnBackButtonClicked" />
+
+                                <!-- Entry Kontrolü -->
+                                <Entry 
+                                     
+                                    Grid.Column="1"
+                                   Unfocused="searchEntry_Unfocused"
+                                    Focused="Frame_Focused"
+                                    Completed="searchEntry_Completed"
+                                    FontSize="16"
+                                    Placeholder="Öğe Ara"
+                                    PlaceholderColor="#70706e"
+                                    TextColor="#70706e"
+                                    BackgroundColor="#333332"
+                                    Margin="10,0"
+                                    x:Name="searchEntry"/>
+                            </Grid>
+                        </Frame>
+                        <ActivityIndicator  x:Name="loadingIndicator1" IsRunning="False" IsVisible="False" />
+                        <ScrollView IsVisible="False" x:Name="scc"  Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                            <StackLayout Orientation="Horizontal">
+                                <Button x:Name="btn" WidthRequest="150" HeightRequest="40" Margin="5 "  BorderWidth="1" BorderColor="#73736c"   BackgroundColor="#73736c" CornerRadius="8" Text="Hepsi" TextColor="White" Clicked="Button_Clicked" />
+
+                                <Button x:Name="btn1"  WidthRequest="150" Margin="5 " BorderWidth="1"      BorderColor="#73736c"  HeightRequest="40" BackgroundColor="#3b3a38" CornerRadius="8" Text="Müzik " TextColor="White" Clicked="Button_Clicked_1" />
+                                <Button x:Name="btn2" WidthRequest="150" HeightRequest="40" Margin="5 "  BorderWidth="1" BorderColor="#73736c"   BackgroundColor="#3b3a38" CornerRadius="8" Text="Listeler" TextColor="White" Clicked="Button_Clicked_2" />
+                                <Button x:Name="btn3" WidthRequest="150" HeightRequest="40" Margin="5 "  BorderWidth="1" BorderColor="#73736c"   BackgroundColor="#3b3a38" CornerRadius="8" Text="Podcast" TextColor="White" Clicked="Button_Clicked_3" />
+                                <Button x:Name="btn4" WidthRequest="150" HeightRequest="40" Margin="5 "  BorderWidth="1" BorderColor="#73736c"   BackgroundColor="#3b3a38" CornerRadius="8" Text="Spor" TextColor="White" />
+                                <Button WidthRequest="150" HeightRequest="40" Margin="5 "  BorderWidth="1" BorderColor="#73736c"   BackgroundColor="#3b3a38" CornerRadius="8" Text="Eğitim" TextColor="White" />
+                            </StackLayout>
+                        </ScrollView>
+                        <Label x:Name="lkl" Grid.Column="0" Text="Keşfet" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Margin="10,0,0,0" FontSize="19" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold"/>
+
+                        <ScrollView x:Name="scr" Orientation="Vertical" VerticalScrollBarVisibility="Never">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+
+                                </Grid.RowDefinitions>
+                                  <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                        <RowDefinition Height="110" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#00DFA2" Margin="6,0,6,6" Padding="0" >
+                                        <Grid>
+                                            <Image Source="b1.jpg" Aspect="AspectFill" />
+                                            <Label Text="Lokal" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold"/>
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#AB46D2" Margin="6,0,6,6" Padding="0" >
+                                        <Grid>
+                                            <Image Source="b2.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Uzamsal Ses" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#F7D716" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b3.jpg" Aspect="AspectFill" />
+                                            <Label Text="Listeler" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#FF6B6B" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b4.jpg" Aspect="AspectFill" />
+                                            <Label Text="Zindelik" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="#FF4848" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b5.jpg" Aspect="AspectFill" />
+                                            <Label Text="Seazer Live" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="#A67B5B" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b6.jpg" Aspect="AspectFill" />
+                                            <Label Text="Sosyal" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="3" Grid.Column="0" BackgroundColor="#F68989" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b7.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Fokus" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="3" Grid.Column="1" BackgroundColor="#FF8225" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b8.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Akustik" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="4" Grid.Column="0" BackgroundColor="#5B99C2" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b9.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Yolda" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="4" Grid.Column="1" BackgroundColor="#FFAF00" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b10.jpg" Aspect="AspectFill" />
+                                            <Label Text="70'60" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="5" Grid.Column="0" BackgroundColor="#D7C3F1" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b11.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="60'lar" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="5" Grid.Column="1" BackgroundColor="#A2CA71" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b12.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Gece" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="6" Grid.Column="0" BackgroundColor="#AD49E1" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b13.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Blues" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold"  />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="6" Grid.Column="1" BackgroundColor="#CD5C08" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b14.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Romantik" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="7" Grid.Column="0" BackgroundColor="#CF0A0A" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b15.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Keyif" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="7" Grid.Column="1" BackgroundColor="#4F1C4C" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b16.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Motivasyon" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="8" Grid.Column="0" BackgroundColor="#1E1548" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b17.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="2000'ler" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="8" Grid.Column="1" BackgroundColor="#A45C5C" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b18.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="80'ler" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="9" Grid.Column="0" BackgroundColor="#E40017" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b19.jpg" Aspect="AspectFill" />
+                                            <Label Text="90'lar" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="9" Grid.Column="1" BackgroundColor="#CC0E74" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b20.jpg" Aspect="AspectFill" />
+                                            <Label Text="Uyku" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="10" Grid.Column="0" BackgroundColor="#2F3847" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b21.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Bizden" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold"  />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="10" Grid.Column="1" BackgroundColor="#6930C3" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b22.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Alternatif" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold"  />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="11" Grid.Column="0" BackgroundColor="#747264" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b23.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Grup" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="11" Grid.Column="1" BackgroundColor="#93AF56" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b24.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Ünlü Rap" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold"  />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="12" Grid.Column="0" BackgroundColor="#78B7BB" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b25.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Pop" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="12" Grid.Column="1" BackgroundColor="#F4CE14" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b26.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Klasik" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="13" Grid.Column="0" BackgroundColor="#6A9C78" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b27.jpg" Aspect="AspectFill" />
+                                            <Label Text="Konser" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="13" Grid.Column="1" BackgroundColor="#A34A28" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b28.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Sahne" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="14" Grid.Column="0" BackgroundColor="#6B011F" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b29.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Açık Alan" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="14" Grid.Column="1" BackgroundColor="#C9F658" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b30.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Ünlü" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="15" Grid.Column="0" BackgroundColor="#445069" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b31.jpg"  Aspect="AspectFill"/>
+                                            <Label Text="Açık Alan" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold"   />
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Grid.Row="15" Grid.Column="1" BackgroundColor="#4F1C4C" Margin="6" Padding="0">
+                                        <Grid>
+                                            <Image Source="b32.jpg"  Aspect="AspectFill"
+                                               />
+                                            <Label Text="Ünlü" TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Padding="10,0,0,5" FontSize="17"  FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" />
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </Grid>
+                        </ScrollView>
+                        <!-- İlk CollectionView -->
+                        
+                        
+                        <Label IsVisible="False" x:Name="lbl1" Margin="9,0,0,0" FontAttributes="Bold" Text="Müzikler" FontFamily="RubikVariableFontWght" FontSize="22" TextColor="White" />
+                        <CollectionView x:Name="songsListView1" SelectionMode="Single" SelectionChanged="songsListView1_SelectionChanged">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Spacing="10">
+                                        <Grid x:Name="aaf" Padding="5,0,0,0" Margin="4" ColumnSpacing="10" HeightRequest="50" HorizontalOptions="Fill">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="88" />
+                                                <ColumnDefinition Width="*" />
+
+                                            </Grid.ColumnDefinitions>
+
+                                            <Frame Grid.Column="0" Margin="0,0,0,0" WidthRequest="75" HeightRequest="48" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="8" HasShadow="False" Padding="0">
+                                                <Image Source="{Binding Thumbnail}" WidthRequest="120" HeightRequest="78" VerticalOptions="Center" HorizontalOptions="Center" />
+                                            </Frame>
+
+                                            <Grid Grid.Column="1"  VerticalOptions="Fill" HorizontalOptions="Fill">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+
+                                                    <ColumnDefinition Width="70" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                                    <Label Text="{Binding Title}" MaxLines="1"  LineBreakMode="TailTruncation"   FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                    <Label Text="{Binding Author}" MaxLines="1" LineBreakMode="TailTruncation"  TextColor="DimGray" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                </StackLayout>
+                                                <ImageButton Grid.Column="1" Margin="0,0,12,0" Source="zzzz.png" MaximumWidthRequest="28" CornerRadius="11" Clicked="OnPlayCldicked" HorizontalOptions="End" BackgroundColor="Transparent" />
+                                                <!-- En alta çizgi eklemek için BoxView -->
+                                                <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" />
+                                            </Grid>
+
+                                        </Grid>
+
+
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                    
+                        <ActivityIndicator x:Name="loadingIndicator1a" IsRunning="False" IsVisible="False" />
+
+                        <!-- Yana Kayabilen Dikdörtgen Kutucuklar -->
+ 
+                        <!-- İkinci CollectionView -->
+                        <Label IsVisible="False" x:Name="lbl2" Text="Listeler" Margin="9,0,0,0" FontAttributes="Bold"   FontFamily="RubikVariableFontWght" FontSize="22" TextColor="White" />
+                        <CollectionView IsVisible="False" x:Name="songsListView2" SelectionMode="Single" SelectionChanged="songsListView2_SelectionChanged">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Spacing="10">
+                                        <Grid x:Name="aaf" Padding="5,0,0,0" Margin="4" ColumnSpacing="10" HeightRequest="50" HorizontalOptions="Fill">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="88" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Frame Grid.Column="0" Margin="0,0,0,0" WidthRequest="75" HeightRequest="48" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="8" HasShadow="False" Padding="0">
+                                                <Image Source="{Binding Thumbnail}" WidthRequest="120" HeightRequest="78" VerticalOptions="Center" HorizontalOptions="Center" />
+                                            </Frame>
+
+                                            <Grid Grid.Column="1"  VerticalOptions="Fill" HorizontalOptions="Fill">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                                    <Label Text="{Binding Title}" MaxLines="1"  LineBreakMode="TailTruncation"   FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                    <Label Text="{Binding Author}" MaxLines="1" LineBreakMode="TailTruncation"  TextColor="DimGray" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                </StackLayout>
+
+                                                <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" />
+                                            </Grid>
+                                        </Grid>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <ActivityIndicator x:Name="loadingIndicator2" IsRunning="False" IsVisible="False" />
+
+                        <!-- Üçüncü CollectionView -->
+                        <Label IsVisible="False" x:Name="lbl3" Text="Podcastler" Margin="9,0,0,0" FontAttributes="Bold"   FontFamily="RubikVariableFontWght" FontSize="22" TextColor="White" />
+                        <CollectionView IsVisible="False" x:Name="songsListView3" SelectionMode="Single" SelectionChanged="songsListView3_SelectionChanged">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Spacing="10">
+                                        <Grid x:Name="aaf" Padding="5,0,0,0" Margin="4" ColumnSpacing="10" HeightRequest="50" HorizontalOptions="Fill">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="88" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Frame Grid.Column="0" Margin="0,0,0,0" WidthRequest="75" HeightRequest="48" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="8" HasShadow="False" Padding="0">
+                                                <Image Source="{Binding Thumbnail}" WidthRequest="120" HeightRequest="78" VerticalOptions="Center" HorizontalOptions="Center" />
+                                            </Frame>
+
+                                            <Grid Grid.Column="1"  VerticalOptions="Fill" HorizontalOptions="Fill">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                                    <Label Text="{Binding Title}" MaxLines="1"  LineBreakMode="TailTruncation"   FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                    <Label Text="{Binding Author}" MaxLines="1" LineBreakMode="TailTruncation"  TextColor="DimGray" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                </StackLayout>
+
+                                                <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" />
+                                            </Grid>
+                                        </Grid>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <ActivityIndicator x:Name="loadingIndicator3" IsRunning="False" IsVisible="False" />
+
+
+                    </VerticalStackLayout>
+                </ScrollView>
+
+                <!-- Sabit Alt Bölüm -->
+
+            </Grid>
+        </On>
+    </OnPlatform>
+</ContentPage>

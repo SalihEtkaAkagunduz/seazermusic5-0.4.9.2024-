@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="seazermusic5.Gözat"
+             Title="Gözat">
+    <ScrollView HorizontalOptions="FillAndExpand">
+        <VerticalStackLayout HorizontalOptions="FillAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="0" />
+                    <!-- Alt Müzik Çalar Çubuğu -->
+                </Grid.RowDefinitions>
+
+                <!-- Arşiv Başlığı -->
+                <Label Grid.Row="0"  Text="Gözat" FontSize="29" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" Margin="23, 25, 10, 5"/>
+
+                <!-- Yatay Kaydırılabilir Resim Listesi -->
+                <CarouselView Grid.Row="1" Margin="2,3,2,3" ItemsSource="{Binding ImageItems}" PeekAreaInsets="6">
+                     
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="0" Margin="5,0">
+                                <Label Text="{Binding ImageText}" FontSize="12" TextColor="Gray" HorizontalOptions="Start" Padding="0" Margin="6,0,0,0" />
+                                <Label Text="{Binding ImageText2}" FontAttributes="Bold" FontSize="18" TextColor="White" HorizontalOptions="Start" Margin="6,0,0,0"/>
+                                <Label Text="{Binding ImageText3}" FontSize="16" TextColor="Gray" HorizontalOptions="Start" Margin="6,0,0,3"/>
+                                <Frame HasShadow="False" BackgroundColor="DimGray" CornerRadius="10" HeightRequest="250" Padding="0">
+                                    <Image Source="{Binding ImageSource}" Aspect="Fill" />
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,15,3,0">
+                    <Label Text="Popüler Şarkılar" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                    <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  />
+                </StackLayout>
+                <CarouselView x:Name="carouselView" Grid.Row="4" PeekAreaInsets="3" ItemsSource ="{Binding Binddd}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="0">
+                                <StackLayout Spacing="10">
+                                    <Grid Padding="2,0,2,0" Margin="4" ColumnSpacing="10" HeightRequest="50" HorizontalOptions="Fill">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="78" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Frame Grid.Column="0" Margin="10,0,0,0" WidthRequest="75" HeightRequest="48" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="8" HasShadow="False" Padding="0">
+                                            <Image Source="{Binding ImageUrl1}" WidthRequest="90" HeightRequest="68" VerticalOptions="Center" HorizontalOptions="Center" />
+                                        </Frame>
+                                        <Grid Margin="5,0,0,0" Grid.Column="1" VerticalOptions="Fill" HorizontalOptions="Fill">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="70" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="{Binding Title1}" MaxLines="1" LineBreakMode="TailTruncation" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                <Label Text="{Binding Artist1}" MaxLines="1" LineBreakMode="TailTruncation" TextColor="DimGray" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <ImageButton Grid.Column="1" Margin="0,0,12,0" Source="zzzz.png" MaximumWidthRequest="28" CornerRadius="11" Clicked="OnMoreOptionsClicked" HorizontalOptions="End" BackgroundColor="Transparent" />
+                                            <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" />
+                                        </Grid>
+                                    </Grid>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Grid x:Name="aaf1" Padding="2,0,0,0" Margin="4" ColumnSpacing="10" HeightRequest="50" HorizontalOptions="Fill">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="78" />
+                                            <ColumnDefinition Width="*" />
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Frame Grid.Column="0" Margin="10,0,0,0" WidthRequest="75" HeightRequest="48" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="8" HasShadow="False" Padding="0">
+                                            <Image Source="{Binding ImageUrl2}" WidthRequest="90" HeightRequest="68" VerticalOptions="Center" HorizontalOptions="Center" />
+                                        </Frame>
+
+                                        <Grid Margin="5,0,0,0" Grid.Column="1"  VerticalOptions="Fill" HorizontalOptions="Fill">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+
+                                                <ColumnDefinition Width="70" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="{Binding Title2}" MaxLines="1"  LineBreakMode="TailTruncation"   FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                <Label Text="{Binding Artist2}" MaxLines="1" LineBreakMode="TailTruncation"  TextColor="DimGray" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <ImageButton Grid.Column="1" Margin="0,0,12,0" Source="zzzz.png" MaximumWidthRequest="28" CornerRadius="11" Clicked="OnMoreOptionsClicked" HorizontalOptions="End" BackgroundColor="Transparent" />
+                                            <!-- En alta çizgi eklemek için BoxView -->
+                                            <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" />
+                                        </Grid>
+                                    </Grid>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Grid x:Name="aaf2" Padding="2,0,0,0" Margin="4" ColumnSpacing="10" HeightRequest="50" HorizontalOptions="Fill">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="78" />
+                                            <ColumnDefinition Width="*" />
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Frame Grid.Column="0" Margin="10,0,0,0" WidthRequest="75" HeightRequest="48" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="8" HasShadow="False" Padding="0">
+                                            <Image Source="{Binding ImageUrl3}" WidthRequest="90" HeightRequest="68" VerticalOptions="Center" HorizontalOptions="Center" />
+                                        </Frame>
+
+                                        <Grid Margin="5,0,0,0" Grid.Column="1"  VerticalOptions="Fill" HorizontalOptions="Fill">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+
+                                                <ColumnDefinition Width="70" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="{Binding Title3}" MaxLines="1"  LineBreakMode="TailTruncation"   FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                <Label Text="{Binding Artist3}" MaxLines="1" LineBreakMode="TailTruncation"  TextColor="DimGray" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <ImageButton Grid.Column="1" Margin="0,0,12,0" Source="zzzz.png" MaximumWidthRequest="28" CornerRadius="11" Clicked="OnMoreOptionsClicked" HorizontalOptions="End" BackgroundColor="Transparent" />
+                                            <!-- En alta çizgi eklemek için BoxView -->
+                                            <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" />
+                                        </Grid>
+                                    </Grid>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Grid x:Name="aaf3" Padding="2,0,0,0" Margin="4" ColumnSpacing="10" HeightRequest="50" HorizontalOptions="Fill">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="78" />
+                                            <ColumnDefinition Width="*" />
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Frame Grid.Column="0" Margin="10,0,0,0" WidthRequest="75" HeightRequest="48" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="8" HasShadow="False" Padding="0">
+                                            <Image Source="{Binding ImageUrl4}" WidthRequest="90" HeightRequest="68" VerticalOptions="Center" HorizontalOptions="Center" />
+                                        </Frame>
+
+                                        <Grid Margin="5,0,0,0" Grid.Column="1"  VerticalOptions="Fill" HorizontalOptions="Fill">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+
+                                                <ColumnDefinition Width="70" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="{Binding Title4}" MaxLines="1"  LineBreakMode="TailTruncation"   FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                <Label Text="{Binding Artist4}" MaxLines="1" LineBreakMode="TailTruncation"  TextColor="DimGray" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <ImageButton Grid.Column="1" Margin="0,0,12,0" Source="zzzz.png" MaximumWidthRequest="28" CornerRadius="11" Clicked="OnMoreOptionsClicked" HorizontalOptions="End" BackgroundColor="Transparent" />
+                                            <!-- En alta çizgi eklemek için BoxView -->
+                                            <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" />
+                                        </Grid>
+                                    </Grid>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Grid x:Name="aaf4" Padding="2,0,0,0" Margin="4" ColumnSpacing="10" HeightRequest="50" HorizontalOptions="Fill">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="78" />
+                                            <ColumnDefinition Width="*" />
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Frame Grid.Column="0" Margin="10,0,0,0" WidthRequest="75" HeightRequest="48" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="8" HasShadow="False" Padding="0">
+                                            <Image Source="{Binding ImageUrl5}" WidthRequest="90" HeightRequest="68" VerticalOptions="Center" HorizontalOptions="Center" />
+                                        </Frame>
+
+                                        <Grid Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Fill" HorizontalOptions="Fill">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+
+                                                <ColumnDefinition Width="70" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="{Binding Title5}" MaxLines="1"  LineBreakMode="TailTruncation"   FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                <Label Text="{Binding Artist5}" MaxLines="1" LineBreakMode="TailTruncation"  TextColor="DimGray" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <ImageButton Grid.Column="1" Margin="0,0,12,0" Source="zzzz.png" MaximumWidthRequest="28" CornerRadius="11" Clicked="OnMoreOptionsClicked" HorizontalOptions="End" BackgroundColor="Transparent" />
+                                            <!-- En alta çizgi eklemek için BoxView -->
+                                            <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" />
+                                        </Grid>
+                                    </Grid>
+                                </StackLayout>
+
+
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+
+                </CarouselView>
+
+            </Grid>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,20,3,5">
+                <Label Text="Önerilen Şarkılar" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_1"  />
+            </StackLayout>
+
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView" Margin="0,6,0,0">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170" BackgroundColor="Beige" BorderColor="Transparent">
+                                    <Image Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label Text="{Binding Title}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                                <Label Text="{Binding Artist}" FontSize="Small" TextColor="Gray"   LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,5,3,5">
+                <Label Text="Güncel Çalma Listeleri" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_2"  />
+            </StackLayout>
+
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView1" Margin="0,6,0,0" SelectionChanged="RecentAlbumsCollectionView1_SelectionChanged" SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170"   BackgroundColor="Beige" BorderColor="Transparent" InputTransparent="True">
+                                    <Image Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label Text="{Binding Name}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" InputTransparent="True" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </ScrollView>
+
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,5,3,5">
+                <Label Text="Önerilen Podcastler" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_3"  />
+            </StackLayout>
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView3" Margin="0,6,0,0" SelectionChanged="RecentAlbumsCollectionView3_SelectionChanged" SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170" BackgroundColor="Beige" BorderColor="Transparent">
+                                    <Image InputTransparent="True" Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label InputTransparent="True" Text="{Binding Name}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,5,3,5">
+                <Label Text="Son Dinlenen Şarkılar" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_4"  />
+            </StackLayout>
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView6" Margin="0,6,0,0">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170" BackgroundColor="Beige" BorderColor="Transparent">
+                                    <Image Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label Text="{Binding Title}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                                <Label Text="{Binding Artist}" FontSize="Small" TextColor="Gray"   LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,5,3,5">
+                <Label Text="Video Listeleri" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_5"  />
+            </StackLayout>
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView4" Margin="0,6,0,0">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170" BackgroundColor="Beige" BorderColor="Transparent">
+                                    <Image Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label Text="{Binding Title}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                                <Label Text="{Binding Artist}" FontSize="Small" TextColor="Gray"   LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,5,3,5">
+                <Label Text="İzlenen Videolar" FontAttributes="Bold" FontFamily="MPLUSRounded1cBold" TextColor="White" FontSize="17" VerticalOptions="Center" />
+                <ImageButton Source="fgf.png" HeightRequest="34" WidthRequest="34" CornerRadius="8" Padding="7" BackgroundColor="Transparent" VerticalOptions="Center" Margin="5,0,0,0"  Clicked="ImageButton_Clicked_6"  />
+            </StackLayout>
+            <ScrollView VerticalOptions="Start" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <CollectionView x:Name="RecentAlbumsCollectionView5" Margin="0,6,0,0">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="5" Margin="6" HorizontalOptions="Center">
+                                <Frame Padding="0" HasShadow="False" CornerRadius="10" WidthRequest="170" HeightRequest="170" BackgroundColor="Beige" BorderColor="Transparent">
+                                    <Image Source="{Binding ImageUrl}" WidthRequest="470" HeightRequest="170" />
+                                </Frame>
+                                <Label Text="{Binding Title}" FontSize="Small" TextColor="White" Margin="0,2,0,0" LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                                <Label Text="{Binding Artist}" FontSize="Small" TextColor="Gray"   LineBreakMode="TailTruncation" MaxLines="1" WidthRequest="170" HorizontalOptions="Center" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <CollectionView x:Name="ArsivCollectionView22" Margin="10, 10, 10, 0" SelectionMode="Single" HorizontalOptions="FillAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="0,5,0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0" VerticalOptions="Fill" HorizontalOptions="Fill">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                            <Label Grid.Column="1" Text="{Binding Title}" VerticalOptions="Center" TextColor="#3572EF" FontSize="21" Margin="5, 0, 0, 11" />
+                                        </StackLayout>
+                                        <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="FillAndExpand" />
+                                    </Grid>
+
+                                    <!-- Visual State Manager for Click Effect -->
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="Normal">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="#333333" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </ScrollView>
+
+
+        </VerticalStackLayout>
+
+
+    </ScrollView>
+</ContentPage>

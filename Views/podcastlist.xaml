@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="seazermusic5.podcastlist"
+             Title="Podcastlar">
+    <ScrollView>
+        <VerticalStackLayout Padding="5">
+            <OnPlatform x:TypeArguments="View">
+                <On Platform="Android">
+                    <StackLayout>
+                        <Frame 
+    BackgroundColor="#333332"
+    CornerRadius="12"
+    Padding="0"
+    Margin="10"
+    VerticalOptions="Start"
+    HorizontalOptions="FillAndExpand" 
+    BorderColor="Transparent"
+    Grid.Row="0">
+                            <Entry 
+                                FontSize="16"
+        Placeholder="Listelerde ara"
+        PlaceholderColor="White"
+        TextColor="White"
+        BackgroundColor="#333332"
+        
+        Margin="10,0"
+        x:Name="searchEntry"/>
+                        </Frame>
+
+
+                        <Grid Padding="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Frame BorderColor="#333332" BackgroundColor="#333332" Grid.Column="0" WidthRequest="65" HeightRequest="65" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="7" HasShadow="False">
+                                <Image  x:Name="albmresim1" BackgroundColor="#333332" Source="adddb.png" WidthRequest="305" HeightRequest="45" />
+                            </Frame>
+                            <Grid Grid.Column="1" Margin="10,0,0,0" VerticalOptions="Fill" HorizontalOptions="Fill" HeightRequest="75">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="70" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                    <Label Text="Yeni Liste..." TextColor="#3572EF" FontSize="17" MaxLines="1" LineBreakMode="TailTruncation" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                </StackLayout>
+                                <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" Margin="0,5,0,0" />
+                            </Grid>
+                        </Grid>
+                        <CollectionView x:Name="collectionView" ItemsSource="{Binding Lists}" VerticalOptions="FillAndExpand" SelectionMode="Single" SelectionChanged="collectionView_SelectionChanged">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Frame Grid.Column="0" WidthRequest="65" HeightRequest="65" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="7" HasShadow="False">
+                                            <Image x:Name="albmresim1" Source="{Binding ImageUrl}" WidthRequest="65" HeightRequest="65" />
+                                        </Frame>
+                                        <Grid Grid.Column="1" Margin="10,0,0,0" VerticalOptions="Fill" HorizontalOptions="Fill" HeightRequest="75">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="70" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="{Binding Name}" MaxLines="1" LineBreakMode="TailTruncation" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <BoxView Grid.ColumnSpan="3" HeightRequest="0.7" BackgroundColor="#303030" VerticalOptions="End" HorizontalOptions="Fill" Margin="0,5,0,0" />
+                                        </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                    </StackLayout>
+                </On>
+                <On Platform="WinUI">
+                    <Label 
+                        Text="Listelerim"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Start"
+                        Margin="0,20,0,20" />
+                    <FlexLayout x:Name="flexLayout" Wrap="Wrap" JustifyContent="Start">
+                        <!-- Dinamik olarak eklenecek liste elemanları -->
+                    </FlexLayout>
+                </On>
+            </OnPlatform>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

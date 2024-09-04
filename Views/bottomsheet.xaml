@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<the49:BottomSheet xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
+                   BackgroundColor="DimGray"
+                x:Class="seazermusic5.Views.bottomsheet"
+    >
+    <the49:BottomSheet.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+        </Style>
+    </the49:BottomSheet.Resources>
+    <VerticalStackLayout Spacing="16">
+        <HorizontalStackLayout Spacing="16" Padding="16, 0">
+            <Border StrokeShape="RoundRectangle 8" StrokeThickness="0">
+                <Image Source="spicy.jpg" HeightRequest="80" WidthRequest="80">
+                    <Image.Clip>
+                        <RoundRectangleGeometry Rect="0, 0, 80, 80" CornerRadius="14"/>
+                    </Image.Clip>
+                </Image>
+            </Border>
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                <Label Text="Hot and spicy" />
+                <Label Text="Drink up!" FontSize="10" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+
+
+        <VerticalStackLayout   BindableLayout.ItemsSource="{Binding Actions }">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Button Text="{Binding Title}" Padding="16, 8" Command="{Binding Command}" />
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</the49:BottomSheet>

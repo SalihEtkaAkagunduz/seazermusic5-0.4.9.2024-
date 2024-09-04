@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="seazermusic5.Premium"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:seazermusic5"
+    Title="Premium Özellikler">
+
+    <ScrollView>
+        <StackLayout Padding="10">
+            <!-- Başlık -->
+            <Label Text="Premium Üyelik Avantajları" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" />
+
+            <!-- Premium Özellikler Listesi -->
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="10" Margin="0,10">
+                <StackLayout>
+                    <Label Text="Reklamsız Deneyim" FontAttributes="Bold" FontSize="Medium" />
+                    <Label Text="Premium üyelik ile reklamsız bir müzik deneyimi yaşayın." />
+                </StackLayout>
+            </Frame>
+
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="10" Margin="0,10">
+                <StackLayout>
+                    <Label Text="Yüksek Kalite Ses" FontAttributes="Bold" FontSize="Medium" />
+                    <Label Text="Müziklerinizi yüksek kalitede dinleyin." />
+                </StackLayout>
+            </Frame>
+
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="10" Margin="0,10">
+                <StackLayout>
+                    <Label Text="Çevrimdışı Dinleme" FontAttributes="Bold" FontSize="Medium" />
+                    <Label Text="İnternet bağlantısı olmadan müziklerinizi dinleyin." />
+                </StackLayout>
+            </Frame>
+
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="10" Margin="0,10">
+                <StackLayout>
+                    <Label Text="Sınırsız Atla" FontAttributes="Bold" FontSize="Medium" />
+                    <Label Text="Şarkıları sınırsızca atlayın." />
+                </StackLayout>
+            </Frame>
+
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="10" Margin="0,10">
+                <StackLayout>
+                    <Label Text="Özel Çalma Listeleri" FontAttributes="Bold" FontSize="Medium" />
+                    <Label Text="Sadece premium üyeler için özel olarak hazırlanmış çalma listelerine erişin." />
+                </StackLayout>
+            </Frame>
+
+            <!-- Premium Üyelik Butonu -->
+            <Button Text="Premium Üyeliğe Geç" BackgroundColor="#007ACC" TextColor="White" Margin="0,20" />
+
+            <!-- Premium Üyelik Bilgilendirme -->
+            <Label Text="Premium üyelik ile ilgili daha fazla bilgi için web sitemizi ziyaret edin." HorizontalOptions="Center" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+

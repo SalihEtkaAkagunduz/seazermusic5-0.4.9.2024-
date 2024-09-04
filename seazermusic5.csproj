@@ -1,0 +1,681 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>seazermusic5</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>Seazer Music</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.seazersoftware.seazermusicc</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<PackageCertificateThumbprint>62A2FEAF1A8E7D428B3B95EFAAA84A27490D1600</PackageCertificateThumbprint>
+		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+		<DefaultLanguage>tr-tr</DefaultLanguage>
+		<PlatformTarget>x64</PlatformTarget>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageId>seazermusic5</PackageId>
+		<Title>Seazer Music</Title>
+		<Version>1.0</Version>
+		<Authors>Seazer Software</Authors>
+		<Company>Seazer Software</Company>
+		<Product>Seazer Music</Product>
+		<Description>Seazer Music - A Seazer Software Application</Description>
+		<Copyright>Seazer Software</Copyright>
+		<PackageProjectUrl>seazer.com.tr</PackageProjectUrl>
+		<PackageIcon>logoo.scale-400.png</PackageIcon>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<NeutralLanguage>tr</NeutralLanguage>
+		<PackageReleaseNotes>Güzel sürüm</PackageReleaseNotes>
+		<PackageTags>Seazer Music</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<GenerateAppInstallerFile>True</GenerateAppInstallerFile>
+		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+		<AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+		<AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+		<GenerateTestArtifacts>True</GenerateTestArtifacts>
+		<AppInstallerUri>https://github.com/SalihEtkaAkagunduz/seazermusic5.git</AppInstallerUri>
+		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+		<RepositoryUrl>https://github.com/SalihEtkaAkagunduz/seazermusic5</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+	  <ApplicationIdGuid>cb78aaa8-96fc-47b9-91ec-4f560b753540</ApplicationIdGuid>
+	  <WarningLevel>1</WarningLevel>
+	  <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+	   
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+	  <ApplicationIdGuid>cb78aaa8-96fc-47b9-91ec-4f560b753540</ApplicationIdGuid>
+	  <WarningLevel>1</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-maccatalyst|AnyCPU'">
+	  <ApplicationIdGuid>cb78aaa8-96fc-47b9-91ec-4f560b753540</ApplicationIdGuid>
+	  <WarningLevel>1</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationIdGuid>cb78aaa8-96fc-47b9-91ec-4f560b753540</ApplicationIdGuid>
+	  <WarningLevel>1</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+	  <ApplicationIdGuid>cb78aaa8-96fc-47b9-91ec-4f560b753540</ApplicationIdGuid>
+	  <WarningLevel>1</WarningLevel>
+	  <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
+	  <ApplicationIdGuid>cb78aaa8-96fc-47b9-91ec-4f560b753540</ApplicationIdGuid>
+	  <WarningLevel>1</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-maccatalyst|AnyCPU'">
+	  <ApplicationIdGuid>cb78aaa8-96fc-47b9-91ec-4f560b753540</ApplicationIdGuid>
+	  <WarningLevel>1</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationIdGuid>cb78aaa8-96fc-47b9-91ec-4f560b753540</ApplicationIdGuid>
+	  <WarningLevel>1</WarningLevel>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg">
+		  <Color>#000000</Color>
+		</MauiSplashScreen>
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#000000" />
+		<!--<MauiIcon Include="Resources\Raw\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />-->
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Raw\splash.svg" Color="#000000" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="appicon.svg" />
+	  <None Remove="Resources\AppIcon\%24placeholder%24.scale-100.png" />
+	  <None Remove="Resources\AppIcon\%24placeholder%24.scale-125.png" />
+	  <None Remove="Resources\AppIcon\%24placeholder%24.scale-150.png" />
+	  <None Remove="Resources\AppIcon\%24placeholder%24.scale-200.png" />
+	  <None Remove="Resources\AppIcon\%24placeholder%24.scale-400.png" />
+	  <None Remove="Resources\AppIcon\aa.scale-100.png" />
+	  <None Remove="Resources\AppIcon\aa.scale-125.png" />
+	  <None Remove="Resources\AppIcon\aa.scale-150.png" />
+	  <None Remove="Resources\AppIcon\aa.scale-200.png" />
+	  <None Remove="Resources\AppIcon\aa.scale-400.png" />
+	  <None Remove="Resources\AppIcon\appicon.svg" />
+	  <None Remove="Resources\AppIcon\BadgeLogo.scale-100.png" />
+	  <None Remove="Resources\AppIcon\BadgeLogo.scale-125.png" />
+	  <None Remove="Resources\AppIcon\BadgeLogo.scale-150.png" />
+	  <None Remove="Resources\AppIcon\BadgeLogo.scale-200.png" />
+	  <None Remove="Resources\AppIcon\BadgeLogo.scale-400.png" />
+	  <None Remove="Resources\AppIcon\bb.scale-100.png" />
+	  <None Remove="Resources\AppIcon\bb.scale-125.png" />
+	  <None Remove="Resources\AppIcon\bb.scale-150.png" />
+	  <None Remove="Resources\AppIcon\bb.scale-200.png" />
+	  <None Remove="Resources\AppIcon\bb.scale-400.png" />
+	  <None Remove="Resources\AppIcon\cc.scale-100.png" />
+	  <None Remove="Resources\AppIcon\cc.scale-125.png" />
+	  <None Remove="Resources\AppIcon\cc.scale-150.png" />
+	  <None Remove="Resources\AppIcon\cc.scale-200.png" />
+	  <None Remove="Resources\AppIcon\cc.scale-400.png" />
+	  <None Remove="Resources\AppIcon\logoo.scale-100.png" />
+	  <None Remove="Resources\AppIcon\logoo.scale-125.png" />
+	  <None Remove="Resources\AppIcon\logoo.scale-150.png" />
+	  <None Remove="Resources\AppIcon\logoo.scale-200.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-16.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-16_altform-lightunplated.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-16_altform-unplated.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-24.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-24_altform-lightunplated.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-24_altform-unplated.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-256.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-256_altform-lightunplated.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-256_altform-unplated.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-32.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-32_altform-lightunplated.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-32_altform-unplated.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-48.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-48_altform-lightunplated.png" />
+	  <None Remove="Resources\AppIcon\logoo.targetsize-48_altform-unplated.png" />
+	  <None Remove="Resources\AppIcon\logooo.scale-100.png" />
+	  <None Remove="Resources\AppIcon\logooo.scale-125.png" />
+	  <None Remove="Resources\AppIcon\logooo.scale-150.png" />
+	  <None Remove="Resources\AppIcon\logooo.scale-200.png" />
+	  <None Remove="Resources\AppIcon\logooo.scale-400.png" />
+	  <None Remove="Resources\Fonts\AnnieUseYourTelescope-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Condiment-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Farsan-Regular.ttf" />
+	  <None Remove="Resources\Fonts\FiraSans-Medium.ttf" />
+	  <None Remove="Resources\Fonts\GrapeNuts-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Kanit-Bold.ttf" />
+	  <None Remove="Resources\Fonts\Kanit-Medium.ttf" />
+	  <None Remove="Resources\Fonts\Lugrasimo-Regular.ttf" />
+	  <None Remove="Resources\Fonts\MPLUSRounded1c-Bold.ttf" />
+	  <None Remove="Resources\Fonts\MPLUSRounded1c-Medium.ttf" />
+	  <None Remove="Resources\Fonts\Rubik-VariableFont_wght.ttf" />
+	  <None Remove="Resources\Fonts\ShadowsIntoLightTwo-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Whisper-Regular.ttf" />
+	  <None Remove="Resources\Images\a1.png" />
+	  <None Remove="Resources\Images\a10.png" />
+	  <None Remove="Resources\Images\a11.png" />
+	  <None Remove="Resources\Images\a12.png" />
+	  <None Remove="Resources\Images\a13.png" />
+	  <None Remove="Resources\Images\a14.png" />
+	  <None Remove="Resources\Images\a15.png" />
+	  <None Remove="Resources\Images\a16.png" />
+	  <None Remove="Resources\Images\a17.png" />
+	  <None Remove="Resources\Images\a18.png" />
+	  <None Remove="Resources\Images\a19.png" />
+	  <None Remove="Resources\Images\a2.png" />
+	  <None Remove="Resources\Images\a20.png" />
+	  <None Remove="Resources\Images\a3.png" />
+	  <None Remove="Resources\Images\a4.png" />
+	  <None Remove="Resources\Images\a5.png" />
+	  <None Remove="Resources\Images\a6.png" />
+	  <None Remove="Resources\Images\a7.png" />
+	  <None Remove="Resources\Images\a8.png" />
+	  <None Remove="Resources\Images\a9.png" />
+	  <None Remove="Resources\Images\aaa.png" />
+	  <None Remove="Resources\Images\aaab.png" />
+	  <None Remove="Resources\Images\aab.png" />
+	  <None Remove="Resources\Images\add.png" />
+	  <None Remove="Resources\Images\addd.png" />
+	  <None Remove="Resources\Images\adddb.png" />
+	  <None Remove="Resources\Images\asd.png" />
+	  <None Remove="Resources\Images\asdd.png" />
+	  <None Remove="Resources\Images\asddd.png" />
+	  <None Remove="Resources\Images\asdddd.png" />
+	  <None Remove="Resources\Images\ass.png" />
+	  <None Remove="Resources\Images\ass2.png" />
+	  <None Remove="Resources\Images\bacg.png" />
+	  <None Remove="Resources\Images\bar1.png" />
+	  <None Remove="Resources\Images\bar1b.png" />
+	  <None Remove="Resources\Images\bar2.png" />
+	  <None Remove="Resources\Images\bar2b.png" />
+	  <None Remove="Resources\Images\bar3b.png" />
+	  <None Remove="Resources\Images\bar4.png" />
+	  <None Remove="Resources\Images\bar4b.png" />
+	  <None Remove="Resources\Images\bar5.png" />
+	  <None Remove="Resources\Images\bar5b.png" />
+	  <None Remove="Resources\Images\bar5w.png" />
+	  <None Remove="Resources\Images\bba.png" />
+	  <None Remove="Resources\Images\bbb.png" />
+	  <None Remove="Resources\Images\bl1.png" />
+	  <None Remove="Resources\Images\bl10.png" />
+	  <None Remove="Resources\Images\bl11.png" />
+	  <None Remove="Resources\Images\bl12.png" />
+	  <None Remove="Resources\Images\bl2.png" />
+	  <None Remove="Resources\Images\bl3.png" />
+	  <None Remove="Resources\Images\bl4.png" />
+	  <None Remove="Resources\Images\bl5.png" />
+	  <None Remove="Resources\Images\bl6.png" />
+	  <None Remove="Resources\Images\bl7.png" />
+	  <None Remove="Resources\Images\bl8.png" />
+	  <None Remove="Resources\Images\bl9.png" />
+	  <None Remove="Resources\Images\ccc.png" />
+	  <None Remove="Resources\Images\dd.png" />
+	  <None Remove="Resources\Images\ddd.png" />
+	  <None Remove="Resources\Images\diamond.png" />
+	  <None Remove="Resources\Images\ee.png" />
+	  <None Remove="Resources\Images\eee.png" />
+	  <None Remove="Resources\Images\ff.png" />
+	  <None Remove="Resources\Images\fff.png" />
+	  <None Remove="Resources\Images\fgf.png" />
+	  <None Remove="Resources\Images\ggg.png" />
+	  <None Remove="Resources\Images\grid.png" />
+	  <None Remove="Resources\Images\hhh.png" />
+	  <None Remove="Resources\Images\jjj.png" />
+	  <None Remove="Resources\Images\kk.png" />
+	  <None Remove="Resources\Images\kkk.png" />
+	  <None Remove="Resources\Images\l1.jpg" />
+	  <None Remove="Resources\Images\l10.jpg" />
+	  <None Remove="Resources\Images\l11.jpg" />
+	  <None Remove="Resources\Images\l12.jpg" />
+	  <None Remove="Resources\Images\l13.jpg" />
+	  <None Remove="Resources\Images\l14.jpg" />
+	  <None Remove="Resources\Images\l15.jpg" />
+	  <None Remove="Resources\Images\l16.jpg" />
+	  <None Remove="Resources\Images\l2.jpg" />
+	  <None Remove="Resources\Images\l3.jpg" />
+	  <None Remove="Resources\Images\l4.jpg" />
+	  <None Remove="Resources\Images\l5.jpg" />
+	  <None Remove="Resources\Images\l6.jpg" />
+	  <None Remove="Resources\Images\l7.jpg" />
+	  <None Remove="Resources\Images\l8.jpg" />
+	  <None Remove="Resources\Images\l9.jpg" />
+	  <None Remove="Resources\Images\ll.png" />
+	  <None Remove="Resources\Images\logoooo.png" />
+	  <None Remove="Resources\Images\mmm.png" />
+	  <None Remove="Resources\Images\morehor.png" />
+	  <None Remove="Resources\Images\morever.png" />
+	  <None Remove="Resources\Images\nnn.png" />
+	  <None Remove="Resources\Images\pd1.png" />
+	  <None Remove="Resources\Images\pd2.png" />
+	  <None Remove="Resources\Images\pd3.png" />
+	  <None Remove="Resources\Images\pd4.png" />
+	  <None Remove="Resources\Images\pd5.png" />
+	  <None Remove="Resources\Images\podcast_image.png" />
+	  <None Remove="Resources\Images\ppp.png" />
+	  <None Remove="Resources\Images\qq.png" />
+	  <None Remove="Resources\Images\qqq.png" />
+	  <None Remove="Resources\Images\qr.png" />
+	  <None Remove="Resources\Images\rr.png" />
+	  <None Remove="Resources\Images\rrr.png" />
+	  <None Remove="Resources\Images\rt.png" />
+	  <None Remove="Resources\Images\set.png" />
+	  <None Remove="Resources\Images\ss.png" />
+	  <None Remove="Resources\Images\sss.png" />
+	  <None Remove="Resources\Images\tt.png" />
+	  <None Remove="Resources\Images\ttt.png" />
+	  <None Remove="Resources\Images\uu.png" />
+	  <None Remove="Resources\Images\uuu.png" />
+	  <None Remove="Resources\Images\v.png" />
+	  <None Remove="Resources\Images\vvv.png" />
+	  <None Remove="Resources\Images\ww.png" />
+	  <None Remove="Resources\Images\www.png" />
+	  <None Remove="Resources\Images\y.png" />
+	  <None Remove="Resources\Images\yy.png" />
+	  <None Remove="Resources\Images\yyy.png" />
+	  <None Remove="Resources\Images\zzz.png" />
+	  <None Remove="Resources\Images\zzzz.png" />
+	  <None Remove="Resources\listimages\b1.jpg" />
+	  <None Remove="Resources\listimages\b10.jpg" />
+	  <None Remove="Resources\listimages\b11.jpg" />
+	  <None Remove="Resources\listimages\b12.jpg" />
+	  <None Remove="Resources\listimages\b13.jpg" />
+	  <None Remove="Resources\listimages\b14.jpg" />
+	  <None Remove="Resources\listimages\b15.jpg" />
+	  <None Remove="Resources\listimages\b16.jpg" />
+	  <None Remove="Resources\listimages\b17.jpg" />
+	  <None Remove="Resources\listimages\b18.jpg" />
+	  <None Remove="Resources\listimages\b19.jpg" />
+	  <None Remove="Resources\listimages\b2.jpg" />
+	  <None Remove="Resources\listimages\b20.jpg" />
+	  <None Remove="Resources\listimages\b21.jpg" />
+	  <None Remove="Resources\listimages\b22.jpg" />
+	  <None Remove="Resources\listimages\b23.jpg" />
+	  <None Remove="Resources\listimages\b24.jpg" />
+	  <None Remove="Resources\listimages\b25.jpg" />
+	  <None Remove="Resources\listimages\b26.jpg" />
+	  <None Remove="Resources\listimages\b27.jpg" />
+	  <None Remove="Resources\listimages\b28.jpg" />
+	  <None Remove="Resources\listimages\b29.jpg" />
+	  <None Remove="Resources\listimages\b3.jpg" />
+	  <None Remove="Resources\listimages\b30.jpg" />
+	  <None Remove="Resources\listimages\b31.jpg" />
+	  <None Remove="Resources\listimages\b32.jpg" />
+	  <None Remove="Resources\listimages\b33.jpg" />
+	  <None Remove="Resources\listimages\b34.jpg" />
+	  <None Remove="Resources\listimages\b35.jpg" />
+	  <None Remove="Resources\listimages\b36.jpg" />
+	  <None Remove="Resources\listimages\b37.jpg" />
+	  <None Remove="Resources\listimages\b38.jpg" />
+	  <None Remove="Resources\listimages\b39.jpg" />
+	  <None Remove="Resources\listimages\b4.jpg" />
+	  <None Remove="Resources\listimages\b40.jpg" />
+	  <None Remove="Resources\listimages\b41.jpg" />
+	  <None Remove="Resources\listimages\b42.jpg" />
+	  <None Remove="Resources\listimages\b43.jpg" />
+	  <None Remove="Resources\listimages\b44.jpg" />
+	  <None Remove="Resources\listimages\b45.jpg" />
+	  <None Remove="Resources\listimages\b46.jpg" />
+	  <None Remove="Resources\listimages\b47.jpg" />
+	  <None Remove="Resources\listimages\b48.jpg" />
+	  <None Remove="Resources\listimages\b5.jpg" />
+	  <None Remove="Resources\listimages\b6.jpg" />
+	  <None Remove="Resources\listimages\b7.jpg" />
+	  <None Remove="Resources\listimages\b8.jpg" />
+	  <None Remove="Resources\listimages\b9.jpg" />
+	  <None Remove="Resources\listimages\home.png" />
+ 
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\AppIcon\$placeholder$.scale-100.png" />
+	  <Content Include="Resources\AppIcon\$placeholder$.scale-125.png" />
+	  <Content Include="Resources\AppIcon\$placeholder$.scale-150.png" />
+	  <Content Include="Resources\AppIcon\$placeholder$.scale-200.png" />
+	  <Content Include="Resources\AppIcon\$placeholder$.scale-400.png" />
+	  <Content Include="Resources\AppIcon\aa.scale-100.png" />
+	  <Content Include="Resources\AppIcon\aa.scale-125.png" />
+	  <Content Include="Resources\AppIcon\aa.scale-150.png" />
+	  <Content Include="Resources\AppIcon\aa.scale-200.png" />
+	  <Content Include="Resources\AppIcon\aa.scale-400.png" />
+	  <Content Include="Resources\AppIcon\BadgeLogo.scale-100.png" />
+	  <Content Include="Resources\AppIcon\BadgeLogo.scale-125.png" />
+	  <Content Include="Resources\AppIcon\BadgeLogo.scale-150.png" />
+	  <Content Include="Resources\AppIcon\BadgeLogo.scale-200.png" />
+	  <Content Include="Resources\AppIcon\BadgeLogo.scale-400.png" />
+	  <Content Include="Resources\AppIcon\bb.scale-100.png" />
+	  <Content Include="Resources\AppIcon\bb.scale-125.png" />
+	  <Content Include="Resources\AppIcon\bb.scale-150.png" />
+	  <Content Include="Resources\AppIcon\bb.scale-200.png" />
+	  <Content Include="Resources\AppIcon\bb.scale-400.png" />
+	  <Content Include="Resources\AppIcon\cc.scale-100.png" />
+	  <Content Include="Resources\AppIcon\cc.scale-125.png" />
+	  <Content Include="Resources\AppIcon\cc.scale-150.png" />
+	  <Content Include="Resources\AppIcon\cc.scale-200.png" />
+	  <Content Include="Resources\AppIcon\cc.scale-400.png" />
+	  <Content Include="Resources\AppIcon\logoo.scale-100.png" />
+	  <Content Include="Resources\AppIcon\logoo.scale-125.png" />
+	  <Content Include="Resources\AppIcon\logoo.scale-150.png" />
+	  <Content Include="Resources\AppIcon\logoo.scale-200.png" />
+	  <Content Include="Resources\AppIcon\logoo.scale-400.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-16.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-16_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-16_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-24.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-24_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-24_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-256.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-256_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-256_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-32.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-32_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-32_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-48.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-48_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\logoo.targetsize-48_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\logooo.scale-100.png" />
+	  <Content Include="Resources\AppIcon\logooo.scale-125.png" />
+	  <Content Include="Resources\AppIcon\logooo.scale-150.png" />
+	  <Content Include="Resources\AppIcon\logooo.scale-200.png" />
+	  <Content Include="Resources\AppIcon\logooo.scale-400.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.0" />
+		<PackageReference Include="FFMpegCore" Version="5.1.0" />
+		<PackageReference Include="FireSharp" Version="2.0.4" />
+		<PackageReference Include="Laerdal.FFmpeg.Full" Version="4.4.27" />
+		<PackageReference Include="Luandersonn.iTunesPodcastFinder" Version="2.2.2" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
+		<PackageReference Include="NAudio" Version="2.2.1" />
+		<PackageReference Include="NAudio.Wasapi" Version="2.2.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="NReco.VideoConverter" Version="1.2.1" />
+		<PackageReference Include="Plugin.Maui.Audio" Version="3.0.0" />
+		<PackageReference Include="PodcastAPI" Version="1.1.6" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.1" />
+		<PackageReference Include="System.Linq.Async" Version="6.0.1" />
+		<PackageReference Include="The49.Maui.BottomSheet" Version="8.0.3" />
+		<PackageReference Include="VideoLAN.LibVLC.Android" Version="3.5.3" />
+		<PackageReference Include="VideoLAN.LibVLC.Windows" Version="3.0.20" />
+		<PackageReference Include="VideoLibrary" Version="3.2.4" />
+		<PackageReference Include="WakaTime" Version="8.1.11" />
+		<PackageReference Include="YoutubeExplode" Version="6.3.16" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\arsiv.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Ayarlar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\bottompage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\bottomsheet.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FooterView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Gözat.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\indirilenler.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\kanalbul.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\kayıtlısarki.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\listebul.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\listeekrani.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\listeler.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MainMenu.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ogebul.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Page1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Page2.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Page3.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Page4.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\podcast.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\podcastbul.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\podcastlist.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Premium.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\sarkibul.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\User.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Simge\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\..\Desktop\readme.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="YoutubeExtractor">
+	    <HintPath>bin\Debug\net8.0-windows10.0.19041.0\win10-x64\YoutubeExtractor.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Resources\AppIcon\logoo.scale-400.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Update="Views\bottomsheet.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+	  <PackageReference Include="Acly.Player">
+	    <Version>1.2.5</Version>
+	  </PackageReference>
+	  <PackageReference Include="Karamunting.Android.TeamSupercharge.ShimmerLayout">
+	    <Version>2.1.0</Version>
+	  </PackageReference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows10.0.19041.0'">
+	  <PackageReference Include="Acly.Player">
+	    <Version>1.2.5</Version>
+	  </PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-x86_64\libvlc.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-x86_64\libc++_shared.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-x86\libvlc.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-x86\libc++_shared.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-armv8\libvlc.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-armv8\libc++_shared.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-armv7\libvlc.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-armv7\libc++_shared.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-armv7\libc++_shared.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-armv7\libc++_shared.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-armv7\libvlc.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-armv7\libvlc.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-armv7\libvlc.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Remove="C:\Users\s2344\.nuget\packages\videolan.libvlc.android\3.5.3\build\android-armv7\libvlc.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\listimages\b1.jpg" />
+	  <MauiImage Include="Resources\listimages\b10.jpg" />
+	  <MauiImage Include="Resources\listimages\b11.jpg" />
+	  <MauiImage Include="Resources\listimages\b12.jpg" />
+	  <MauiImage Include="Resources\listimages\b13.jpg" />
+	  <MauiImage Include="Resources\listimages\b14.jpg" />
+	  <MauiImage Include="Resources\listimages\b15.jpg" />
+	  <MauiImage Include="Resources\listimages\b16.jpg" />
+	  <MauiImage Include="Resources\listimages\b17.jpg" />
+	  <MauiImage Include="Resources\listimages\b18.jpg" />
+	  <MauiImage Include="Resources\listimages\b19.jpg" />
+	  <MauiImage Include="Resources\listimages\b2.jpg" />
+	  <MauiImage Include="Resources\listimages\b20.jpg" />
+	  <MauiImage Include="Resources\listimages\b21.jpg" />
+	  <MauiImage Include="Resources\listimages\b22.jpg" />
+	  <MauiImage Include="Resources\listimages\b23.jpg" />
+	  <MauiImage Include="Resources\listimages\b24.jpg" />
+	  <MauiImage Include="Resources\listimages\b25.jpg" />
+	  <MauiImage Include="Resources\listimages\b26.jpg" />
+	  <MauiImage Include="Resources\listimages\b27.jpg" />
+	  <MauiImage Include="Resources\listimages\b28.jpg" />
+	  <MauiImage Include="Resources\listimages\b29.jpg" />
+	  <MauiImage Include="Resources\listimages\b3.jpg" />
+	  <MauiImage Include="Resources\listimages\b30.jpg" />
+	  <MauiImage Include="Resources\listimages\b31.jpg" />
+	  <MauiImage Include="Resources\listimages\b32.jpg" />
+	  <MauiImage Include="Resources\listimages\b33.jpg" />
+	  <MauiImage Include="Resources\listimages\b34.jpg" />
+	  <MauiImage Include="Resources\listimages\b35.jpg" />
+	  <MauiImage Include="Resources\listimages\b36.jpg" />
+	  <MauiImage Include="Resources\listimages\b37.jpg" />
+	  <MauiImage Include="Resources\listimages\b38.jpg" />
+	  <MauiImage Include="Resources\listimages\b39.jpg" />
+	  <MauiImage Include="Resources\listimages\b4.jpg" />
+	  <MauiImage Include="Resources\listimages\b40.jpg" />
+	  <MauiImage Include="Resources\listimages\b41.jpg" />
+	  <MauiImage Include="Resources\listimages\b42.jpg" />
+	  <MauiImage Include="Resources\listimages\b43.jpg" />
+	  <MauiImage Include="Resources\listimages\b44.jpg" />
+	  <MauiImage Include="Resources\listimages\b45.jpg" />
+	  <MauiImage Include="Resources\listimages\b46.jpg" />
+	  <MauiImage Include="Resources\listimages\b47.jpg" />
+	  <MauiImage Include="Resources\listimages\b48.jpg" />
+	  <MauiImage Include="Resources\listimages\b5.jpg" />
+	  <MauiImage Include="Resources\listimages\b6.jpg" />
+	  <MauiImage Include="Resources\listimages\b7.jpg" />
+	  <MauiImage Include="Resources\listimages\b8.jpg" />
+	  <MauiImage Include="Resources\listimages\b9.jpg" />
+	  <MauiImage Include="Resources\listimages\home.png" />
+	</ItemGroup>
+
+</Project>
